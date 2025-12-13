@@ -1046,7 +1046,8 @@
     "summary": "Galerías de videos de las principales noticias de Antioquia, Colombia y del mundo.",
     "scraped_at": "2025-12-13T17:12:32.951840",
     "user_score": null,
-    "predicted_score": 1.9332163695682678
+    "predicted_score": 1.9332163695682678,
+    "status": "discarded"
   },
   {
     "id": 4967585618824269000,
