@@ -18,5 +18,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765617893676,
+    "url": "https://www.pulzo.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
