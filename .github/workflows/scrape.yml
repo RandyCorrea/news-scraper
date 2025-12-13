@@ -3,6 +3,8 @@ name: Scrape News
 on:
   schedule:
     - cron: '0 */6 * * *' # Every 6 hours
+  repository_dispatch:
+    types: [trigger-scraper]
   workflow_dispatch:
     inputs:
       reason:
