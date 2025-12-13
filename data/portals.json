@@ -108,5 +108,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645267095,
+    "url": "https://www.diarioadn.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
