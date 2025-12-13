@@ -434,7 +434,8 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.378966",
     "user_score": null,
-    "predicted_score": 5
+    "predicted_score": 5,
+    "status": "discarded"
   },
   {
     "id": 980701925358924000,
