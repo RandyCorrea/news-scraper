@@ -1,4 +1,3 @@
-```
 const REPO_OWNER = 'RandyCorrea';
 const REPO_NAME = 'news-scraper';
 const NEWS_SOURCE = 'data/news.json';
@@ -42,13 +41,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadNews() {
     try {
-        const response = await fetch(NEWS_SOURCE + '?t=' + Date.now());
+        const response = await fetch(NEWS_SOURCE + '?t=' + Date.now()); // bust cache
         if (!response.ok) throw new Error('Failed to load news');
         newsData = await response.json();
         renderNews(newsData);
     } catch (error) {
         console.error(error);
-        GRID.innerHTML = `< div style = "grid-column:1/-1;text-align:center" > No news data found.</div > `;
+        GRID.innerHTML = `<div style="grid-column:1/-1;text-align:center">No news data found.</div>`;
     }
 }
 
@@ -69,14 +68,15 @@ function renderNews(articles) {
         return;
     }
 
+    // Sort by predicted score desc
     articles.sort((a, b) => (b.predicted_score || 0) - (a.predicted_score || 0));
 
     GRID.innerHTML = articles.map(article => {
         const rating = article.user_score || 0;
         const pred = article.predicted_score ? article.predicted_score.toFixed(1) : '?';
-        
+
         return `
-    < article class="card" data - url="${article.url}" data - id="${article.id}" >
+        <article class="card" data-url="${article.url}" data-id="${article.id}">
             <div class="card-image-container">
                 <span class="prediction-badge">AI Score: ${pred}</span>
                 <img src="${article.image || 'https://placehold.co/600x400'}" alt="Img" class="card-image" onerror="this.src='https://placehold.co/600x400?text=Error'">
@@ -101,21 +101,21 @@ function renderNews(articles) {
                     </div>
                 </div>
             </div>
-        </article >
+        </article>
     `}).join('');
-    
+
     lucide.createIcons();
 }
 
 function renderPortals(portals) {
     PORTALS_LIST.innerHTML = portals.map(p => `
-    < div class="portal-item" >
+        <div class="portal-item">
             <div class="portal-info">
                 <strong>${p.url}</strong>
                 <span class="portal-url">${p.section} | Enabled: ${p.enabled}</span>
             </div>
             <button class="btn danger" onclick="deletePortal(${p.id})">Delete</button>
-        </div >
+        </div>
     `).join('');
     lucide.createIcons();
 }
@@ -125,21 +125,21 @@ function renderPortals(portals) {
 async function verifyToken() {
     const token = document.getElementById('gh-token').value.trim();
     const btn = document.getElementById('verify-btn');
-    
+
     if (!token) {
         showToast('Enter token first', 'error');
         return;
     }
-    
+
     btn.innerHTML = '...';
     try {
         const res = await fetch('https://api.github.com/user', {
-            headers: { 'Authorization': `token ${ token } ` }
+            headers: { 'Authorization': `token ${token}` }
         });
-        
+
         if (res.ok) {
             const user = await res.json();
-            showToast(`Connected as ${ user.login } `, 'success');
+            showToast(`Connected as ${user.login}`, 'success');
             btn.innerHTML = '<i data-lucide="check"></i>';
             btn.classList.add('success');
             lucide.createIcons();
@@ -161,12 +161,13 @@ async function rateArticle(id, score) {
         return;
     }
 
+    // Optimistic Update
     const article = newsData.find(a => a.id === id);
     if (article) article.user_score = score;
     renderNews(newsData);
-    
-    showToast(`Saving rating ${ score }...`, 'info');
-    await updateGitHubFile(NEWS_SOURCE, newsData, `User rated article ${ id } as ${ score } `);
+
+    showToast(`Saving rating ${score}...`, 'info');
+    await updateGitHubFile(NEWS_SOURCE, newsData, `User rated article ${id} as ${score}`);
 }
 
 async function saveNewPortal() {
@@ -175,11 +176,11 @@ async function saveNewPortal() {
         showToast('GitHub Token is required!', 'error');
         return;
     }
-    
+
     const url = document.getElementById('portal-url').value;
     const section = document.getElementById('portal-section').value;
     const btn = document.getElementById('save-portal-btn');
-    
+
     if (!url) {
         showToast('URL is required', 'error');
         return;
@@ -193,14 +194,16 @@ async function saveNewPortal() {
         url,
         section,
         enabled: true,
-        selectors: { item: 'h2', link: 'a' }
+        selectors: { item: 'h2', link: 'a' } // Default
     };
-    
+
+    // Add locally immediately
     portalsData.push(newPortal);
     renderPortals(portalsData);
-    
+
     try {
-        await updateGitHubFile(PORTALS_SOURCE, portalsData, `Add portal ${ url } `);
+        await updateGitHubFile(PORTALS_SOURCE, portalsData, `Add portal ${url}`);
+        // Reset form on success
         document.getElementById('portal-url').value = '';
         document.getElementById('test-result').classList.add('hidden');
     } catch (e) {
@@ -219,76 +222,81 @@ async function deletePortal(id) {
         showToast('Token required!', 'error');
         return;
     }
-    
+
     portalsData = portalsData.filter(p => p.id !== id);
     renderPortals(portalsData);
-    await updateGitHubFile(PORTALS_SOURCE, portalsData, `Delete portal ${ id } `);
+    await updateGitHubFile(PORTALS_SOURCE, portalsData, `Delete portal ${id}`);
 }
 
 async function testPortalExtraction() {
     const url = document.getElementById('portal-url').value;
     const resultBox = document.getElementById('test-result');
     const saveBtn = document.getElementById('save-portal-btn');
-    
+
     if (!url) {
         showToast('Enter URL first', 'error');
         return;
     }
-    
+
     resultBox.classList.remove('hidden');
     resultBox.className = 'test-result';
     resultBox.innerText = 'Testing reachability...';
-    
+
     try {
-        saveBtn.disabled = false; 
+        // Allow saving regardless of test result result, but warn.
+        saveBtn.disabled = false;
+
         const res = await fetch(url, { mode: 'no-cors' });
+        // With no-cors, we get status 0. If it throws, it's a network error.
         resultBox.className = 'test-result success';
-        resultBox.innerText = `✅ Network Reachable.Ready to save.`;
+        resultBox.innerText = `✅ Network Reachable. Ready to save.`;
     } catch (e) {
         resultBox.className = 'test-result error';
-        resultBox.innerText = `⚠️ Network Error: ${ e.message }. You can still try to save.`;
+        resultBox.innerText = `⚠️ Network Error: ${e.message}. You can still try to save.`;
         saveBtn.disabled = false;
     }
 }
+
+// GitHub Utilities
 
 async function updateGitHubFile(path, contentObj, msg) {
     const token = document.getElementById('gh-token').value.trim();
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
 
-try {
-    const getRes = await fetch(apiUrl, {
-        headers: {
-            'Authorization': `token ${token}`,
-            'Cache-Control': 'no-cache'
-        }
-    });
+    try {
+        const getRes = await fetch(apiUrl, {
+            headers: {
+                'Authorization': `token ${token}`,
+                'Cache-Control': 'no-cache'
+            }
+        });
 
-    if (!getRes.ok) throw new Error('File not found or Token invalid');
+        if (!getRes.ok) throw new Error('File not found or Token invalid');
 
-    const getData = await getRes.json();
-    const contentStr = JSON.stringify(contentObj, null, 2);
-    const encoded = btoa(unescape(encodeURIComponent(contentStr)));
+        const getData = await getRes.json();
+        const contentStr = JSON.stringify(contentObj, null, 2);
+        const encoded = btoa(unescape(encodeURIComponent(contentStr)));
 
-    const putRes = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-            'Authorization': `token ${token}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            message: msg,
-            content: encoded,
-            sha: getData.sha
-        })
-    });
+        const putRes = await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: msg,
+                content: encoded,
+                sha: getData.sha
+            })
+        });
 
-    if (putRes.ok) showToast('Saved!', 'success');
-    else throw new Error('Save Failed');
-} catch (e) {
-    console.error(e);
-    showToast(e.message, 'error');
-    throw e;
-}
+        if (putRes.ok) showToast('Saved!', 'success');
+        else throw new Error('Save Failed');
+    } catch (e) {
+        console.error(e);
+        showToast(e.message, 'error');
+        throw e;
+    }
 }
 
 async function triggerScraper() {
@@ -305,8 +313,8 @@ async function triggerScraper() {
             body: JSON.stringify({ event_type: 'trigger-scraper' })
         });
 
-        if (res.ok) showToast('Bot Triggered!', 'success');
-        else showToast('Failed to trigger', 'error');
+        if (res.ok) showToast('Bot Triggered! Refresh in 2-3 mins.', 'success');
+        else showToast('Failed to trigger bot', 'error');
     } catch (e) {
         showToast('Error triggering bot', 'error');
     }
@@ -318,7 +326,9 @@ function showToast(msg, type = 'info') {
     setTimeout(() => TOAST.className = 'toast hidden', 3000);
 }
 
+// Placeholder for checkLinks from v1
 async function checkLinks() {
+    // ... same as before
     const cards = document.querySelectorAll('.card');
     showToast('Checking links...', 'info');
     for (const card of cards) {
@@ -330,4 +340,3 @@ async function checkLinks() {
         }
     }
 }
-```
