@@ -50,6 +50,16 @@
     }
   },
   {
+    "id": 1765617934572,
+    "url": "https://www.publimetro.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
+  },
+  {
     "id": 1765617943522,
     "url": "https://www.publimetro.co/",
     "section": "World",
@@ -112,6 +122,16 @@
   {
     "id": 1765645338871,
     "url": "https://www.elcolombiano.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
+  },
+  {
+    "id": 1765645449274,
+    "url": "https://www.alertapaisa.com/",
     "section": "World",
     "enabled": true,
     "selectors": {
