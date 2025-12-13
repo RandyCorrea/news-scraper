@@ -168,5 +168,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645550106,
+    "url": "https://www.elheraldo.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
