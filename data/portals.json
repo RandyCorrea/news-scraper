@@ -88,5 +88,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645241055,
+    "url": "https://www.qhubo.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
