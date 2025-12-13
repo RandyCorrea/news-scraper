@@ -41,7 +41,7 @@ jobs:
           git config user.name "Bot Scraper"
           git config user.email "bot@news.local"
           # Add all changed data: news, model, etc.
-          git add data/news.json data/model.pkl || true
-          git commit -m "Auto: Update news & model [skip ci]" || exit 0
+          git add data/news.json data/model.pkl data/telegraph_token.json || true
+          git commit -m "Auto: Update news, model & tokens [skip ci]" || exit 0
           git push
 
