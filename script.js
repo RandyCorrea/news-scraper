@@ -359,7 +359,10 @@ async function triggerScraper() {
     try {
         const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
             method: 'POST',
-            headers: { 'Authorization': `token ${token}` },
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            },
             body: JSON.stringify({ event_type: 'trigger-scraper' })
         });
 
