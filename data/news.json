@@ -6,8 +6,9 @@
     "url": "https://www.cambiocolombia.com/poder/articulo/2025/12/historia-textilera-jose-mugrabi-sobrino-en-juicio-conexion-tio-gran-coleccionista-warhols/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594442",
-    "user_score": null,
-    "predicted_score": 5
+    "user_score": 1,
+    "predicted_score": 5,
+    "status": "discarded"
   },
   {
     "id": 7134667063975092000,
@@ -16,7 +17,7 @@
     "url": "https://www.cambiocolombia.com/poder/articulo/2025/12/denuncias-por-presuntas-irregularidades-en-el-fondo-de-adaptacion-destapan-nuevas-diferencias-entre-angie-rodriguez-y-carlos-carrillo/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594427",
-    "user_score": null,
+    "user_score": 1,
     "predicted_score": 5,
     "status": "discarded"
   },
@@ -27,7 +28,7 @@
     "url": "https://www.cambiocolombia.com/pais/articulo/2025/12/la-ruta-del-crimen-de-las-ninas-envenenadas-con-talio-en-bogota/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594415",
-    "user_score": null,
+    "user_score": 3,
     "predicted_score": 5,
     "status": "discarded"
   },
@@ -38,7 +39,7 @@
     "url": "https://www.cambiocolombia.com/poder/articulo/2025/12/los-secretos-de-juliana-guerrero-y-su-ambicion-politica-en-el-cesar/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594400",
-    "user_score": null,
+    "user_score": 2,
     "predicted_score": 5,
     "status": "discarded"
   },
@@ -49,7 +50,7 @@
     "url": "https://www.cambiocolombia.com/pais/articulo/2025/12/estados-unidos-no-entrego-el-nombre-del-funcionario-numero-3-que-revela-acuerdo-de-corficolombiana-con-ese-pais/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594384",
-    "user_score": null,
+    "user_score": 1,
     "predicted_score": 5,
     "status": "discarded"
   },
@@ -60,8 +61,9 @@
     "url": "https://www.cambiocolombia.com/poder/articulo/2025/12/denuncia-viviana-vargas-graves-amenazas-ivan-mordisco-disidencias-farc-guaviare/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594368",
-    "user_score": null,
-    "predicted_score": 5
+    "user_score": 2,
+    "predicted_score": 5,
+    "status": "discarded"
   },
   {
     "id": 4283845285566601700,
@@ -102,8 +104,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594312",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 2906374801598303000,
@@ -123,8 +124,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:03.643986",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 6698071967945686000,
@@ -203,9 +203,8 @@
     "url": "https://www.publimetro.co/noticias/2025/12/13/tragedia-por-polvora-tres-animales-murieron-en-el-parque-de-la-conservacion-de-medellin-por-el-ruido-de-la-alborada/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:03.643723",
-    "user_score": 5,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 2906374801598303000,
@@ -314,9 +313,8 @@
     "url": "https://www.las2orillas.co/la-alianza-nacional-que-permitio-desarticular-una-banda-que-traficaba-migrantes-dominicanos-en-colombia/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680683",
-    "user_score": 5,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 6389166877602652000,
@@ -325,9 +323,8 @@
     "url": "https://www.las2orillas.co/asi-se-escapo-maria-corina-machado-de-venezuela-y-llego-a-oslo-a-recibir-el-nobel-de-la-paz/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680672",
-    "user_score": 3,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 7769105362472967000,
@@ -337,8 +334,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680661",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 1187321904908528600,
@@ -348,8 +344,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680649",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 5011874286128772000,
@@ -358,9 +353,8 @@
     "url": "https://www.las2orillas.co/quienes-estan-detras-de-la-organizacion-gringa-que-planeo-y-ejecuto-la-fuga-de-maria-corina-machado-de-venezuela/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680638",
-    "user_score": 5,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 491040194232596350,
@@ -370,8 +364,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680619",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 5021639465978429000,
@@ -381,8 +374,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680607",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 678627659924298000,
@@ -391,9 +383,8 @@
     "url": "https://www.las2orillas.co/con-su-primera-red-de-estaciones-de-carga-electrica-en-el-caribe-isa-entra-a-competir-con-terpel-enel-y-epm/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680595",
-    "user_score": 1,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 2628482862712754000,
@@ -402,9 +393,8 @@
     "url": "https://www.las2orillas.co/dos-paisas-se-metieron-a-san-andres-a-sacar-la-basura-del-mar-y-a-recuperar-su-barrera-de-coral/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680582",
-    "user_score": 1,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 887029540365278300,
@@ -413,9 +403,8 @@
     "url": "https://www.las2orillas.co/la-pelea-que-el-multimillonario-david-velez-y-su-nubank-perdieron-contra-una-empresa-samaria/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.680558",
-    "user_score": 1,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 52106473918487830,
@@ -424,9 +413,8 @@
     "url": "https://www.elespectador.com/podcast-espanol-el-espectador/cuales-son-las-aves-mas-hermosas-de-colombia/",
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.379029",
-    "user_score": 1,
-    "predicted_score": 5,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 5
   },
   {
     "id": 7032056586461905000,
@@ -436,8 +424,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.379015",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 6813619422232767000,
@@ -447,8 +434,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:02.378966",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 980701925358924000,
@@ -458,8 +444,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513971",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 7889802835218534000,
@@ -469,8 +454,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513962",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 3724905528438032000,
@@ -480,8 +464,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513954",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 4952683897662929000,
@@ -491,8 +474,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513945",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 4573415620415918600,
@@ -502,8 +484,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513935",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 6492394351552734000,
@@ -513,8 +494,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513923",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 1312534485260400000,
@@ -524,8 +504,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513913",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 4049041138088336400,
@@ -535,8 +514,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513903",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 8460193681229730000,
@@ -546,8 +524,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513892",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 5228450735229186000,
@@ -557,8 +534,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:58.513867",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 8149354707082714000,
@@ -568,8 +544,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849741",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 3811819782068279300,
@@ -579,8 +554,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849714",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 8750412277774351000,
@@ -590,8 +564,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849697",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 7064436206131145000,
@@ -601,8 +574,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849667",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 5852635710890887000,
@@ -612,8 +584,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849638",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 3342008823992789500,
@@ -623,8 +594,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849627",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 8353390412497037000,
@@ -634,8 +604,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849618",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 3995370734208483000,
@@ -645,8 +614,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849609",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 6112572864856304000,
@@ -656,8 +624,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849599",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 1378642725338919700,
@@ -667,8 +634,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:37:57.849577",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 3471691543554620000,
@@ -677,7 +643,7 @@
     "url": "https://www.theverge.com/news/841222/rsl-licensing-ai-spec-launch",
     "image": "https://placehold.co/600x400/png?text=The+Verge",
     "scraped_at": "2025-12-13T05:36:43.786445",
-    "status": "discarded"
+    "status": "unchecked"
   },
   {
     "id": 5692593521348917000,
@@ -686,6 +652,6 @@
     "url": "https://www.theverge.com/report/827712/rian-johnson-interview-knives-out-wake-up-dead-man",
     "image": "https://placehold.co/600x400/png?text=The+Verge",
     "scraped_at": "2025-12-13T05:36:43.786494",
-    "status": "discarded"
+    "status": "unchecked"
   }
 ]
