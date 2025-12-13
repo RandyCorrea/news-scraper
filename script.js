@@ -93,26 +93,35 @@ function renderNews(articles) {
     // Sort by predicted score desc
     articles.sort((a, b) => (b.predicted_score || 0) - (a.predicted_score || 0));
 
-    GRID.innerHTML = articles.map(article => {
+    // Filter discarded
+    const visibleArticles = articles.filter(a => a.status !== 'discarded');
+
+    GRID.innerHTML = visibleArticles.map(article => {
         const rating = article.user_score || 0;
         const pred = article.predicted_score ? article.predicted_score.toFixed(1) : '?';
+        const cleanLink = article.telegraph_url ?
+            `<a href="${article.telegraph_url}" target="_blank" class="btn secondary small" title="Read Clean View"><i data-lucide="book-open"></i> Read</a>` : '';
 
         return `
         <article class="card" data-url="${article.url}" data-id="${article.id}">
             <div class="card-image-container">
                 <span class="prediction-badge">AI Score: ${pred}</span>
+                <button class="discard-btn" onclick="discardArticle('${article.id}')" title="Discard"><i data-lucide="x"></i></button>
                 <img src="${article.image || 'https://placehold.co/600x400'}" alt="Img" class="card-image" onerror="this.src='https://placehold.co/600x400?text=Error'">
             </div>
             <div class="card-content">
                 <span class="source-badge">${article.source}</span>
                 <a href="${article.url}" target="_blank" class="card-title">${article.title}</a>
+                <p class="summary">${article.summary || ''}</p>
                 
-                <div class="rating-container">
-                    <span class="rating-label">Rate this:</span>
-                    <div class="stars" data-id="${article.id}">
-                        ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `
-                            <span class="star ${n <= rating ? 'active' : ''}" data-val="${n}" onclick="rateArticle(${article.id}, ${n})">★</span>
-                        `).join('')}
+                <div class="actions-row">
+                    ${cleanLink}
+                    <div class="rating-container">
+                        <div class="stars" data-id="${article.id}">
+                            ${[1, 2, 3, 4, 5].map(n => `
+                                <span class="star ${n <= rating ? 'active' : ''}" data-val="${n}" onclick="rateArticle(${article.id}, ${n})">★</span>
+                            `).join('')}
+                        </div>
                     </div>
                 </div>
 
@@ -127,6 +136,18 @@ function renderNews(articles) {
     `}).join('');
 
     lucide.createIcons();
+}
+
+async function discardArticle(id) {
+    if (!confirm('Discard this article?')) return;
+
+    // Optimistic remove
+    const article = newsData.find(a => String(a.id) === String(id));
+    if (article) {
+        article.status = 'discarded';
+        renderNews(newsData);
+        await updateGitHubFile(NEWS_SOURCE, newsData, `Discard article ${id}`);
+    }
 }
 
 function renderPortals(portals) {
