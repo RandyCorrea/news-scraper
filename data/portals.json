@@ -28,5 +28,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765617901956,
+    "url": "https://www.elespectador.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
