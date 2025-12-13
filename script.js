@@ -134,15 +134,27 @@ async function rateArticle(id, score) {
 }
 
 async function saveNewPortal() {
-    const token = TOKEN_INPUT.value;
+    const token = document.getElementById('gh-token').value.trim(); // Get fresh value
     if (!token) {
-        showToast('Token required to save portal!', 'error');
+        showToast('GiHub Token is required to save!', 'error');
         return;
     }
     
+    // Disable button while saving
+    const btn = document.getElementById('save-portal-btn');
+    btn.disabled = true;
+    btn.innerText = 'Saving...';
+
     const url = document.getElementById('portal-url').value;
     const section = document.getElementById('portal-section').value;
     
+    if (!url) {
+        showToast('URL is required', 'error');
+        btn.disabled = false;
+        btn.innerText = 'Save Portal';
+        return;
+    }
+
     const newPortal = {
         id: Date.now(),
         url,
@@ -151,13 +163,23 @@ async function saveNewPortal() {
         selectors: { item: 'h2', link: 'a' } // Default
     };
     
+    // Add locally immediately
     portalsData.push(newPortal);
     renderPortals(portalsData);
     
-    await updateGitHubFile(PORTALS_SOURCE, portalsData, `Add portal ${ url } `);
-    
-    // reset form
-    document.getElementById('portal-url').value = '';
+    try {
+        await updateGitHubFile(PORTALS_SOURCE, portalsData, `Add portal ${ url } `);
+        // Reset form on success
+        document.getElementById('portal-url').value = '';
+        document.getElementById('test-result').classList.add('hidden');
+    } catch (e) {
+        // Revert on failure? Or just warn.
+        console.error(e);
+        showToast('Failed to save to GitHub. Check Console.', 'error');
+    } finally {
+        btn.disabled = false;
+        btn.innerText = 'Save Portal';
+    }
 }
 
 async function deletePortal(id) {
@@ -176,6 +198,7 @@ async function deletePortal(id) {
 async function testPortalExtraction() {
     const url = document.getElementById('portal-url').value;
     const resultBox = document.getElementById('test-result');
+    const saveBtn = document.getElementById('save-portal-btn');
     
     if (!url) {
         showToast('Enter URL first', 'error');
@@ -183,43 +206,48 @@ async function testPortalExtraction() {
     }
     
     resultBox.classList.remove('hidden');
-    resultBox.innerText = 'Testing connection... (Proxying via CORS-Anywhere or direct)';
+    resultBox.className = 'test-result';
+    resultBox.innerText = 'Testing reachability...';
     
-    // Client-side fetch is limited by CORS.
-    // For a real robust test, we would need a serverless function.
-    // Here we try simple fetch, if it fails, we warn user.
     try {
-        const res = await fetch(url, { mode: 'no-cors' }); 
-        // Opaque response means we reached it but can't read content easily in JS.
-        // We simulate success if no network error.
+        // Allow saving regardless of test result result, but warn.
+        saveBtn.disabled = false; 
+        
+        const res = await fetch(url, { mode: 'no-cors' });
+        // With no-cors, we get status 0. If it throws, it's a network error.
         resultBox.className = 'test-result success';
-        resultBox.innerText = `✅ Reachable. (Content parsing happens on the server / bot).`;
-        document.getElementById('save-portal-btn').disabled = false;
+        resultBox.innerText = `✅ Network Reachable. (Status: ${ res.status }).Ready to save.`;
     } catch (e) {
         resultBox.className = 'test-result error';
-        resultBox.innerText = `❌ Connection Failed: ${ e.message }. Bot might still access it.`;
-        // Enable anyway to let user try?
-        document.getElementById('save-portal-btn').disabled = false;
+        resultBox.innerText = `⚠️ Network Error: ${ e.message }. You can still try to save if you are sure.`;
+        saveBtn.disabled = false;
     }
 }
 
 // GitHub Utilities
 
 async function updateGitHubFile(path, contentObj, msg) {
-    const token = TOKEN_INPUT.value;
+    const token = document.getElementById('gh-token').value.trim();
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
 
 try {
     // 1. Get current SHA
     const getRes = await fetch(apiUrl, {
-        headers: { 'Authorization': `token ${token}` }
+        headers: {
+            'Authorization': `token ${token}`,
+            'Cache-Control': 'no-cache'
+        }
     });
+
+    if (!getRes.ok) throw new Error('Failed to fetch file info (Check Token scopes)');
+
     const getData = await getRes.json();
     const sha = getData.sha;
 
     // 2. Update
     const contentStr = JSON.stringify(contentObj, null, 2);
-    const encoded = btoa(unescape(encodeURIComponent(contentStr))); // Unicode safe b64
+    // Unicode safe b64 encoding
+    const encoded = btoa(unescape(encodeURIComponent(contentStr)));
 
     const putRes = await fetch(apiUrl, {
         method: 'PUT',
@@ -237,17 +265,19 @@ try {
     if (putRes.ok) {
         showToast('Saved successfully!', 'success');
     } else {
-        console.error(await putRes.json());
-        showToast('Failed to save to GitHub', 'error');
+        const err = await putRes.json();
+        console.error(err);
+        throw new Error(err.message || 'Save failed');
     }
 } catch (e) {
     console.error(e);
-    showToast('Network error saving data', 'error');
+    showToast(`Error: ${e.message}`, 'error');
+    throw e; // Propagate
 }
 }
 
 async function triggerScraper() {
-    const token = TOKEN_INPUT.value;
+    const token = document.getElementById('gh-token').value.trim();
     if (!token) {
         showToast('Token required!', 'error');
         return;
