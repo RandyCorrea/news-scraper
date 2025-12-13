@@ -10,6 +10,12 @@ from sklearn.pipeline import make_pipeline
 from datetime import datetime
 from newspaper import Article, Config
 from telegraph import Telegraph
+import nltk
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    nltk.download('punkt_tab') # For newer NLTK versions
 
 MODEL_FILE = 'data/model.pkl'
 NEWS_FILE = 'data/news.json'

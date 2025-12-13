@@ -7,3 +7,4 @@ numpy
 joblib
 newspaper3k
 telegraph
+nltk
