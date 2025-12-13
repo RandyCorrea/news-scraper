@@ -1166,7 +1166,8 @@
     "summary": "Zona Cero es el principal portal de noticias de Barranquilla, la región Caribe y Colombia.",
     "scraped_at": "2025-12-13T17:12:50.750386",
     "user_score": null,
-    "predicted_score": 1.882771153210669
+    "predicted_score": 1.882771153210669,
+    "status": "discarded"
   },
   {
     "id": 2600029891969428500,
