@@ -1,13 +1,1 @@
-[
-  {
-    "id": 2,
-    "url": "https://techcrunch.com",
-    "section": "Tech",
-    "selectors": {
-      "item": ".loop-card__title",
-      "link": "a",
-      "title": "a"
-    },
-    "enabled": true
-  }
-]
+[]
