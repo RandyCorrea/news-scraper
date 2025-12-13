@@ -68,5 +68,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765617954172,
+    "url": "https://www.cambiocolombia.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
