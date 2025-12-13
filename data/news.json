@@ -1202,7 +1202,8 @@
     "summary": "Empresas",
     "scraped_at": "2025-12-13T17:12:23.778010",
     "user_score": null,
-    "predicted_score": 1.882771153210669
+    "predicted_score": 1.882771153210669,
+    "status": "discarded"
   },
   {
     "id": 3787322249452120600,
