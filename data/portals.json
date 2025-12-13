@@ -1,24 +1,13 @@
 [
-    {
-        "id": 1,
-        "url": "https://www.theverge.com",
-        "section": "Tech",
-        "selectors": {
-            "item": "h2",
-            "link": "a",
-            "title": "a"
-        },
-        "enabled": true
+  {
+    "id": 2,
+    "url": "https://techcrunch.com",
+    "section": "Tech",
+    "selectors": {
+      "item": ".loop-card__title",
+      "link": "a",
+      "title": "a"
     },
-    {
-        "id": 2,
-        "url": "https://techcrunch.com",
-        "section": "Tech",
-        "selectors": {
-            "item": ".loop-card__title",
-            "link": "a",
-            "title": "a"
-        },
-        "enabled": true
-    }
+    "enabled": true
+  }
 ]
