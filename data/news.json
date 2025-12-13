@@ -776,7 +776,8 @@
     "summary": "Entérese de los movimientos y noticias sobre política que están marcando la agenda en Colombia y el mundo. Noticias, reportajes y análisis en un solo lugar con Semana.",
     "scraped_at": "2025-12-13T16:54:32.304848",
     "user_score": 1,
-    "predicted_score": 2.664922528683047
+    "predicted_score": 2.664922528683047,
+    "status": "discarded"
   },
   {
     "id": 535188811362880300,
