@@ -38,5 +38,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765617911452,
+    "url": "https://www.las2orillas.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
