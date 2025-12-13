@@ -50,16 +50,6 @@
     }
   },
   {
-    "id": 1765617934572,
-    "url": "https://www.publimetro.co/",
-    "section": "World",
-    "enabled": true,
-    "selectors": {
-      "item": "h2",
-      "link": "a"
-    }
-  },
-  {
     "id": 1765617943522,
     "url": "https://www.publimetro.co/",
     "section": "World",
