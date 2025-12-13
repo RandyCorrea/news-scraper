@@ -715,8 +715,9 @@
     "image": "https://www.pulzo.com/pulzo-icon-48x48.png",
     "summary": "POLÍTICA GENERAL DE TRATAMIENTO DE DATOS PERSONALES Y MANEJO DE INFORMACIÓN DE R360 S.A.S.\n\nEn R360 S.A.S. (“R360”, la “Compañía” o el “Responsable”) ...",
     "scraped_at": "2025-12-13T16:54:55.320791",
-    "user_score": null,
-    "predicted_score": 2.8841968178545705
+    "user_score": 1,
+    "predicted_score": 2.8841968178545705,
+    "status": "discarded"
   },
   {
     "id": 4760511519944009000,
