@@ -128,5 +128,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645383486,
+    "url": "https://www.qhubomedellin.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
