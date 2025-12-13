@@ -118,5 +118,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645338871,
+    "url": "https://www.elcolombiano.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
