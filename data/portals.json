@@ -78,5 +78,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645227136,
+    "url": "https://www.elnuevosiglo.com.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
