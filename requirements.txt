@@ -1,6 +1,9 @@
 requests
 beautifulsoup4
 lxml
+lxml_html_clean
 scikit-learn
 numpy
 joblib
+newspaper3k
+telegraph

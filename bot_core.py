@@ -8,10 +8,54 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from datetime import datetime
+from newspaper import Article, Config
+from telegraph import Telegraph
 
 MODEL_FILE = 'data/model.pkl'
 NEWS_FILE = 'data/news.json'
 PORTALS_FILE = 'data/portals.json'
+TELEGRAPH_TOKEN_FILE = 'data/telegraph_token.json'
+
+class TelegraphPublisher:
+    def __init__(self):
+        self.telegraph = Telegraph()
+        self.token = self._load_or_create_account()
+        
+    def _load_or_create_account(self):
+        if os.path.exists(TELEGRAPH_TOKEN_FILE):
+            try:
+                with open(TELEGRAPH_TOKEN_FILE, 'r') as f:
+                    data = json.load(f)
+                    token = data.get('access_token')
+                    print(f"Loaded Telegraph token.")
+                    self.telegraph = Telegraph(access_token=token)
+                    return token
+            except Exception as e:
+                print(f"Error loading Telegraph token: {e}")
+        
+        # Create new
+        try:
+            print("Creating new Telegraph account...")
+            account = self.telegraph.create_account(short_name='NewsBot', author_name='AI News Aggregator')
+            with open(TELEGRAPH_TOKEN_FILE, 'w') as f:
+                json.dump(account, f)
+            return account['access_token']
+        except Exception as e:
+            print(f"Failed to create Telegraph account: {e}")
+            return None
+
+    def publish(self, title, html_content, author="AI Bot"):
+        if not self.token: return None
+        try:
+            response = self.telegraph.create_page(
+                title=title[:256], # Limit title length
+                html_content=html_content,
+                author_name=author
+            )
+            return response['url']
+        except Exception as e:
+            print(f"Telegraph publish failed: {e}")
+            return None
 
 class NewsML:
     def __init__(self):
@@ -72,6 +116,7 @@ class NewsML:
 class PortalManager:
     def __init__(self):
         self.portals = self._load_portals()
+        self.publisher = TelegraphPublisher()
 
     def _load_portals(self):
         if os.path.exists(PORTALS_FILE):
@@ -91,85 +136,117 @@ class PortalManager:
         return articles
 
     def _scrape_portal(self, portal):
-        # Generic scraper using selectors from JSON
-        # If selectors missing, try heuristic fallback
+        # 1. Get Links first using basic requests/bs4 to find article URLs
+        # (Newspaper can do this too, but we want to stick to the 'portal' definition logic loosely)
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         }
+        
+        items = []
         try:
             resp = requests.get(portal['url'], headers=headers, timeout=10)
             soup = BeautifulSoup(resp.content, 'lxml')
             
-            items = []
-            selectors = portal.get('selectors', {})
-            item_sel = selectors.get('item', 'h2') # Default assumption
-            
-            if not item_sel:
-                # Fallback: find all 'a' tags with length > 20 chars
-                candidates = soup.find_all('a')
-            else:
-                candidates = soup.select(item_sel)
-
+            # Find links
+            candidates = soup.find_all('a')
             seen_links = set()
-
-            for item in candidates:
-                link_tag = item if item.name == 'a' else item.find('a')
-                if not link_tag: continue
-                
-                href = link_tag.get('href')
+            
+            count = 0
+            for link in candidates:
+                href = link.get('href')
                 if not href: continue
                 
+                # Normalize URL
                 if not href.startswith('http'):
-                    base = '/'.join(portal['url'].split('/')[:3]) # simple base extraction
+                    base = '/'.join(portal['url'].split('/')[:3])
                     if href.startswith('/'):
                         href = base + href
                     else:
-                        href = base + '/' + href # simplistic
+                        href = base + '/' + href
 
                 if href in seen_links: continue
                 seen_links.add(href)
-
-                title = link_tag.get_text(strip=True)
-                if len(title) < 10: continue
-
-                # Image attempt
-                img = "https://placehold.co/600x400?text=News"
-                # Try simple heuristic for image
-                # Parent logic... similar to previous scraper
                 
-                items.append({
-                    "id": abs(hash(href)),
-                    "source": portal.get('section', 'General'),
-                    "title": title,
-                    "url": href,
-                    "image": img,
-                    "scraped_at": datetime.now().isoformat(),
-                    "user_score": None # New items have no score
-                })
+                # Basic filter: length and keywords? 
+                # Newspaper will do better validation, but we don't want to scan every single link (nav, footer)
+                # Heuristic: link text length > 15 chars OR href contains specific path
+                text = link.get_text(strip=True)
+                if len(text) < 15 and len(href) < 30: continue
                 
-                if len(items) >= 10: break # Limit per portal
-            
-            return items
+                # Processing with Newspaper3k
+                try:
+                    print(f"  -> Processing {href}...")
+                    article = Article(href)
+                    article.download()
+                    article.parse()
+                    
+                    if not article.title or len(article.text) < 200:
+                        # Skip short/empty content
+                        continue
+                        
+                    # NLP (Optional, can be slow)
+                    # article.nlp() 
+                    
+                    # Prepare content for Telegraph
+                    # Simple formatting from text to HTML paragraphs
+                    # For better HTML preservation, we'd need more complex parsing, 
+                    # but newspaper gives clean updates.
+                    
+                    # Convert text to simple HTML for telegraph
+                    html_body = ""
+                    if article.top_image:
+                        html_body += f"<img src='{article.top_image}'><br>"
+                    
+                    # Paragraphs
+                    paragraphs = article.text.split('\n\n')
+                    for p in paragraphs:
+                        if p.strip():
+                            html_body += f"<p>{p.strip()}</p>"
+                            
+                    # Publish
+                    telegraph_url = self.publisher.publish(
+                        title=article.title,
+                        html_content=html_body,
+                        author=f"{portal.get('section', 'Bot')} - {', '.join(article.authors)}"
+                    )
+                    
+                    items.append({
+                        "id": abs(hash(href)),
+                        "source": portal.get('section', 'General'),
+                        "title": article.title,
+                        "url": href,
+                        "telegraph_url": telegraph_url, # NEW field
+                        "image": article.top_image or "https://placehold.co/600x400?text=News",
+                        "summary": article.meta_description or article.text[:150] + "...",
+                        "scraped_at": datetime.now().isoformat(),
+                        "user_score": None
+                    })
+                    
+                    count += 1
+                    if count >= 3: break # Limit to 3 deep articles per portal for speed/rate-limits
+                    
+                except Exception as e:
+                    print(f"    Failed to process article {href}: {e}")
+                    continue
 
         except Exception as e:
-            print(f"Error scraping {portal['url']}: {e}")
-            return []
+            print(f"Error scraping portal {portal['url']}: {e}")
+            
+        return items
 
 def merge_news(old_news, new_news):
     # Dedup by URL
     existing_map = {n['url']: n for n in old_news}
     
     merged = []
-    # Keep old news (preserving user scores)
+    # Keep old news 
     for n in old_news:
         merged.append(n)
         
     count_new = 0
     for n in new_news:
         if n['url'] not in existing_map:
-            merged.insert(0, n) # Add new to top
+            merged.insert(0, n)
             count_new += 1
-    
-    # Sort by date? Or score? 
-    # For now, keep somewhat chronological, but we could sort by predicted score later.
+            
     return merged, count_new
