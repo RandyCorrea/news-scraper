@@ -147,8 +147,14 @@ async function verifyToken() {
 
     btn.innerHTML = '...';
     try {
+        console.log(`Verifying token: ${token.substring(0, 4)}... (Length: ${token.length})`);
+
+        // Use Bearer
         const res = await fetch('https://api.github.com/user', {
-            headers: { 'Authorization': `token ${token}` }
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
         });
 
         if (res.ok) {
@@ -158,10 +164,13 @@ async function verifyToken() {
             btn.classList.add('success');
             lucide.createIcons();
         } else {
-            throw new Error('Invalid Token');
+            const err = await res.json();
+            console.error(err);
+            throw new Error(`API Error: ${res.status}`);
         }
     } catch (e) {
-        showToast('Token Invalid!', 'error');
+        console.error(e);
+        showToast(`Verify Failed: ${e.message}`, 'error');
         btn.innerHTML = '<i data-lucide="x"></i>';
         btn.classList.remove('success');
         lucide.createIcons();
@@ -280,11 +289,14 @@ async function updateGitHubFile(path, contentObj, msg) {
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
 
     try {
+        console.log(`Fetching SHA for ${path}...`);
+
         // 1. Get current SHA
         const getRes = await fetch(apiUrl, {
             headers: {
-                'Authorization': `token ${token}`,
-                'Cache-Control': 'no-cache'
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+                // Removed Cache-Control to simplify CORS
             }
         });
 
@@ -296,21 +308,25 @@ async function updateGitHubFile(path, contentObj, msg) {
         }
 
         const getData = await getRes.json();
+        const sha = getData.sha;
 
         // 2. Update
+        console.log(`Updating ${path} with SHA ${sha}...`);
+
         const contentStr = JSON.stringify(contentObj, null, 2);
         const encoded = btoa(unescape(encodeURIComponent(contentStr)));
 
         const putRes = await fetch(apiUrl, {
             method: 'PUT',
             headers: {
-                'Authorization': `token ${token}`,
-                'Content-Type': 'application/json'
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/vnd.github.v3+json'
             },
             body: JSON.stringify({
                 message: msg,
                 content: encoded,
-                sha: getData.sha
+                sha: sha
             })
         });
 
@@ -324,9 +340,8 @@ async function updateGitHubFile(path, contentObj, msg) {
         showToast('Saved successfully!', 'success');
     } catch (e) {
         console.error(e);
-        // Distinguish network errors (Failed to fetch) from API errors
         if (e.message === 'Failed to fetch') {
-            showToast('Network Error. Check ID/CORS/AdBlock.', 'error');
+            showToast('Network Error (CORS/Blocker). See Console.', 'error');
         } else {
             showToast(e.message, 'error');
         }
