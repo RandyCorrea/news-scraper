@@ -22,27 +22,62 @@
         <header>
             <div class="header-content">
                 <h1>Global<span class="highlight">News</span>Hub</h1>
-                <p>Curated tech news from around the web</p>
+                <p>Curated tech news with AI Scoring</p>
             </div>
             <div class="controls">
                 <button id="check-links-btn" class="btn secondary">
                     <i data-lucide="activity"></i> Check Links
                 </button>
                 <div class="trigger-group">
-                    <input type="password" id="gh-token" placeholder="GitHub Token" class="token-input">
+                    <input type="password" id="gh-token" placeholder="GitHub Token (Required for Actions)"
+                        class="token-input">
                     <button id="trigger-btn" class="btn primary">
-                        <i data-lucide="zap"></i> Trigger Scraper
+                        <i data-lucide="zap"></i> Trigger Bot
                     </button>
                 </div>
             </div>
         </header>
 
-        <section id="news-grid" class="news-grid">
-            <!-- News cards will be injected here -->
-            <div class="loader-container">
-                <div class="loader"></div>
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="news-tab">News Feed</button>
+            <button class="tab-btn" data-tab="portals-tab">Portals</button>
+        </div>
+
+        <!-- News Tab -->
+        <div id="news-tab" class="tab-content active">
+            <section id="news-grid" class="news-grid">
+                <div class="loader-container">
+                    <div class="loader"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Portals Tab -->
+        <div id="portals-tab" class="tab-content">
+            <div class="portal-management">
+                <div class="add-portal-form">
+                    <h3>Add New Portal</h3>
+                    <div class="input-group">
+                        <input type="url" id="portal-url" placeholder="https://example.com/news" required>
+                        <select id="portal-section">
+                            <option value="Tech">Tech</option>
+                            <option value="Finance">Finance</option>
+                            <option value="World">World</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+                        <button id="test-portal-btn" class="btn secondary">Test Extraction</button>
+                        <button id="save-portal-btn" class="btn primary" disabled>Save Portal</button>
+                    </div>
+                    <div id="test-result" class="test-result hidden"></div>
+                </div>
+
+                <h3>Active Portals</h3>
+                <div id="portals-list" class="portals-list">
+                    <!-- Portals injected here -->
+                </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <div id="toast" class="toast hidden">

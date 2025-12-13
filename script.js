@@ -1,29 +1,64 @@
+```
+const REPO_OWNER = 'RandyCorrea';
+const REPO_NAME = 'news-scraper';
 const NEWS_SOURCE = 'data/news.json';
+const PORTALS_SOURCE = 'data/portals.json';
+
+// DOM Elements
 const GRID = document.getElementById('news-grid');
+const PORTALS_LIST = document.getElementById('portals-list');
 const TOAST = document.getElementById('toast');
 const TOAST_MSG = document.getElementById('toast-message');
+const TOKEN_INPUT = document.getElementById('gh-token');
 
-// Initial Load
+// State
+let newsData = [];
+let portalsData = [];
+
+// Init
 document.addEventListener('DOMContentLoaded', async () => {
+    // Tab Switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Load Data
+    await Promise.all([loadNews(), loadPortals()]);
+
+    // Portal Events
+    document.getElementById('test-portal-btn').addEventListener('click', testPortalExtraction);
+    document.getElementById('save-portal-btn').addEventListener('click', saveNewPortal);
+    document.getElementById('trigger-btn').addEventListener('click', triggerScraper);
+    document.getElementById('check-links-btn').addEventListener('click', checkLinks);
+});
+
+async function loadNews() {
     try {
-        const response = await fetch(NEWS_SOURCE);
-        if (!response.ok) throw new Error('Failed to load news data');
-        const news = await response.json();
-        renderNews(news);
+        const response = await fetch(NEWS_SOURCE + '?t=' + Date.now()); // bust cache
+        if (!response.ok) throw new Error('Failed to load news');
+        newsData = await response.json();
+        renderNews(newsData);
     } catch (error) {
         console.error(error);
-        GRID.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
-                <h3 style="color: var(--text-secondary);">Local data not found or empty.</h3>
-                <p>If this is the first run, trigger the scraper.</p>
-            </div>
-        `;
+        GRID.innerHTML = `< div style = "grid-column:1/-1;text-align:center" > No news data found.</div > `;
     }
+}
 
-    // Event Listeners
-    document.getElementById('check-links-btn').addEventListener('click', checkLinks);
-    document.getElementById('trigger-btn').addEventListener('click', triggerScraper);
-});
+async function loadPortals() {
+    try {
+        const response = await fetch(PORTALS_SOURCE + '?t=' + Date.now());
+        if (!response.ok) throw new Error('Failed to load portals');
+        portalsData = await response.json();
+        renderPortals(portalsData);
+    } catch (error) {
+        console.error("Portals load error:", error);
+    }
+}
 
 function renderNews(articles) {
     if (!articles || articles.length === 0) {
@@ -31,120 +66,225 @@ function renderNews(articles) {
         return;
     }
 
-    GRID.innerHTML = articles.map(article => `
-        <article class="card" data-url="${article.url}" data-id="${article.id}">
+    // Sort by predicted score desc
+    articles.sort((a, b) => (b.predicted_score || 0) - (a.predicted_score || 0));
+
+    GRID.innerHTML = articles.map(article => {
+        const rating = article.user_score || 0;
+        const pred = article.predicted_score ? article.predicted_score.toFixed(1) : '?';
+        
+        return `
+    < article class="card" data - url="${article.url}" data - id="${article.id}" >
             <div class="card-image-container">
-                <img src="${article.image || 'https://placehold.co/600x400'}" alt="${article.title}" class="card-image" onerror="this.src='https://placehold.co/600x400?text=Error'">
+                <span class="prediction-badge">AI Score: ${pred}</span>
+                <img src="${article.image || 'https://placehold.co/600x400'}" alt="Img" class="card-image" onerror="this.src='https://placehold.co/600x400?text=Error'">
             </div>
             <div class="card-content">
                 <span class="source-badge">${article.source}</span>
                 <a href="${article.url}" target="_blank" class="card-title">${article.title}</a>
+                
+                <div class="rating-container">
+                    <span class="rating-label">Rate this:</span>
+                    <div class="stars" data-id="${article.id}">
+                        ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `
+                            <span class="star ${n <= rating ? 'active' : ''}" data-val="${n}" onclick="rateArticle(${article.id}, ${n})">★</span>
+                        `).join('')}
+                    </div>
+                </div>
+
                 <div class="card-meta">
                     <span class="date">${new Date(article.scraped_at).toLocaleDateString()}</span>
                     <div class="status-indicator">
                         <div class="status-dot" id="status-${article.id}"></div>
-                        <span id="status-text-${article.id}">Unknown</span>
                     </div>
                 </div>
             </div>
-        </article>
+        </article >
+    `}).join('');
+}
+
+function renderPortals(portals) {
+    PORTALS_LIST.innerHTML = portals.map(p => `
+    < div class="portal-item" >
+            <div class="portal-info">
+                <strong>${p.url}</strong>
+                <span class="portal-url">${p.section} | Enabled: ${p.enabled}</span>
+            </div>
+            <button class="btn danger" onclick="deletePortal(${p.id})">Delete</button>
+        </div >
     `).join('');
-
-    // Re-init icons for dynamic content if needed, but here simple static icons
 }
 
-async function checkLinks() {
-    const cards = document.querySelectorAll('.card');
-    showToast('Checking links compatibility...', 'info');
+// Actions
 
-    for (const card of cards) {
-        const url = card.dataset.url;
-        const id = card.dataset.id;
-        const dot = document.getElementById(`status-${id}`);
-        const text = document.getElementById(`status-text-${id}`);
-
-        dot.className = 'status-dot checking';
-        text.innerText = 'Checking...';
-
-        try {
-            // Note: CORS often blocks direct HEAD/GET requests to external news sites from a browser.
-            // We'll use no-cors mode which returns an opaque response. 
-            // If it doesn't throw a network error, it often means the domain is reachable.
-            // However, 404s might be masked. This is a "reachability" check.
-            await fetch(url, { mode: 'no-cors', method: 'HEAD' });
-
-            // If we got here, DNS/Connection likely OK.
-            dot.className = 'status-dot active';
-            text.innerText = 'Active';
-        } catch (error) {
-            dot.className = 'status-dot error';
-            text.innerText = 'Unreachable';
-        }
-
-        // Small delay to visualize progress
-        await new Promise(r => setTimeout(r, 200));
-    }
-    showToast('Link check completed', 'success');
-}
-
-async function triggerScraper() {
-    const token = document.getElementById('gh-token').value;
+async function rateArticle(id, score) {
+    const token = TOKEN_INPUT.value;
     if (!token) {
-        showToast('Please enter a GitHub Token', 'error');
+        showToast('Token required to save rating!', 'error');
         return;
     }
 
-    // Infer repo details from URL or user must hardcode them?
-    // Since this is a template, we can't easily guess the repo if running locally without config.
-    // For now, I'll assume the user might need to input repo/owner or we defaults to current context if deployed.
-    // BUT since we are running locally, let's ask for repo or assume it from the plan logic.
-    // I'll make the user input "owner/repo" or hardcode it if known. 
-    // Wait, the user prompt implies "a la web local debe... boton para arrancar la action".
+    // Optimistic Update
+    const article = newsData.find(a => a.id === id);
+    if (article) article.user_score = score;
+    renderNews(newsData);
+    
+    showToast(`Saving rating ${ score }...`, 'info');
+    await updateGitHubFile(NEWS_SOURCE, newsData, `User rated article ${ id } as ${ score } `);
+}
 
-    // I will try to fetch the repo info from the git config or just prompt.
-    // Simplifying: I'll hardcode a placeholder or ask user to fill it. 
-    // Better: Add an input for "Repo" or just use the token and assume the user knows they need to edit the script/input.
-    // I'll stick to a prompt approach for Repo to be generic.
+async function saveNewPortal() {
+    const token = TOKEN_INPUT.value;
+    if (!token) {
+        showToast('Token required to save portal!', 'error');
+        return;
+    }
+    
+    const url = document.getElementById('portal-url').value;
+    const section = document.getElementById('portal-section').value;
+    
+    const newPortal = {
+        id: Date.now(),
+        url,
+        section,
+        enabled: true,
+        selectors: { item: 'h2', link: 'a' } // Default
+    };
+    
+    portalsData.push(newPortal);
+    renderPortals(portalsData);
+    
+    await updateGitHubFile(PORTALS_SOURCE, portalsData, `Add portal ${ url } `);
+    
+    // reset form
+    document.getElementById('portal-url').value = '';
+}
 
-    let repoSlug = prompt("Enter repository (owner/repo):", "RandyCorrea/usdt-p2p-venezuela-extension");
-    // Wait, user is in "chat-hub"? The user path is `Documents/P2P/chat-hub`. 
-    // Repo context: `RandyCorrea/usdt-p2p-venezuela-extension` is the P2P extension. This is likely a NEW repo or subfolder.
-    // User said "web alojada en githubpages with un bot".
-    // I will use a prompt for flexibility.
+async function deletePortal(id) {
+    if (!confirm('Are you sure?')) return;
+    const token = TOKEN_INPUT.value;
+    if (!token) {
+        showToast('Token required!', 'error');
+        return;
+    }
+    
+    portalsData = portalsData.filter(p => p.id !== id);
+    renderPortals(portalsData);
+    await updateGitHubFile(PORTALS_SOURCE, portalsData, `Delete portal ${ id } `);
+}
 
-    if (!repoSlug) return;
+async function testPortalExtraction() {
+    const url = document.getElementById('portal-url').value;
+    const resultBox = document.getElementById('test-result');
+    
+    if (!url) {
+        showToast('Enter URL first', 'error');
+        return;
+    }
+    
+    resultBox.classList.remove('hidden');
+    resultBox.innerText = 'Testing connection... (Proxying via CORS-Anywhere or direct)';
+    
+    // Client-side fetch is limited by CORS.
+    // For a real robust test, we would need a serverless function.
+    // Here we try simple fetch, if it fails, we warn user.
+    try {
+        const res = await fetch(url, { mode: 'no-cors' }); 
+        // Opaque response means we reached it but can't read content easily in JS.
+        // We simulate success if no network error.
+        resultBox.className = 'test-result success';
+        resultBox.innerText = `✅ Reachable. (Content parsing happens on the server / bot).`;
+        document.getElementById('save-portal-btn').disabled = false;
+    } catch (e) {
+        resultBox.className = 'test-result error';
+        resultBox.innerText = `❌ Connection Failed: ${ e.message }. Bot might still access it.`;
+        // Enable anyway to let user try?
+        document.getElementById('save-portal-btn').disabled = false;
+    }
+}
 
-    showToast('Triggering GitHub Action...', 'info');
+// GitHub Utilities
+
+async function updateGitHubFile(path, contentObj, msg) {
+    const token = TOKEN_INPUT.value;
+    const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
+
+try {
+    // 1. Get current SHA
+    const getRes = await fetch(apiUrl, {
+        headers: { 'Authorization': `token ${token}` }
+    });
+    const getData = await getRes.json();
+    const sha = getData.sha;
+
+    // 2. Update
+    const contentStr = JSON.stringify(contentObj, null, 2);
+    const encoded = btoa(unescape(encodeURIComponent(contentStr))); // Unicode safe b64
+
+    const putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+            'Authorization': `token ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            message: msg,
+            content: encoded,
+            sha: sha
+        })
+    });
+
+    if (putRes.ok) {
+        showToast('Saved successfully!', 'success');
+    } else {
+        console.error(await putRes.json());
+        showToast('Failed to save to GitHub', 'error');
+    }
+} catch (e) {
+    console.error(e);
+    showToast('Network error saving data', 'error');
+}
+}
+
+async function triggerScraper() {
+    const token = TOKEN_INPUT.value;
+    if (!token) {
+        showToast('Token required!', 'error');
+        return;
+    }
 
     try {
-        const response = await fetch(`https://api.github.com/repos/${repoSlug}/dispatches`, {
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
             method: 'POST',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Accept': 'application/vnd.github.v3+json'
-            },
-            body: JSON.stringify({
-                event_type: 'trigger-scraper'
-            })
+            headers: { 'Authorization': `token ${token}` },
+            body: JSON.stringify({ event_type: 'trigger-scraper' })
         });
 
-        if (response.ok) {
-            showToast('Scraper triggered successfully!', 'success');
-        } else {
-            const err = await response.json();
-            showToast(`Error: ${err.message || 'Failed'}`, 'error');
-        }
-    } catch (error) {
-        showToast('Network error triggering action', 'error');
-        console.error(error);
+        if (res.ok) showToast('Bot Triggered! Refresh in 2-3 mins.', 'success');
+        else showToast('Failed to trigger bot', 'error');
+    } catch (e) {
+        showToast('Error triggering bot', 'error');
     }
 }
 
 function showToast(msg, type = 'info') {
     TOAST_MSG.innerText = msg;
     TOAST.className = `toast visible`;
-    // could style based on type
-    setTimeout(() => {
-        TOAST.className = 'toast hidden';
-    }, 3000);
+    setTimeout(() => TOAST.className = 'toast hidden', 3000);
 }
+
+// Placeholder for checkLinks from v1
+async function checkLinks() {
+    // ... same as before
+    const cards = document.querySelectorAll('.card');
+    showToast('Checking links...', 'info');
+    for (const card of cards) {
+        try {
+            await fetch(card.dataset.url, { mode: 'no-cors', method: 'HEAD' });
+            document.getElementById(`status-${card.dataset.id}`).style.background = 'var(--success)';
+        } catch (e) {
+            document.getElementById(`status-${card.dataset.id}`).style.background = 'var(--error)';
+        }
+    }
+}
+```

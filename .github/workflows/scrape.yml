@@ -1,12 +1,13 @@
 name: Scrape News
 
 on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
   workflow_dispatch:
     inputs:
       reason:
-        description: 'Reason for scrape'
-        required: false
-        default: 'Manual trigger'
+        description: 'Trigger reason'
+        default: 'Manual'
 
 jobs:
   scrape:
@@ -17,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,17 +28,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f news-scraper/requirements.txt ]; then pip install -r news-scraper/requirements.txt; fi
+          pip install -r requirements.txt
 
-      - name: Run Scraper
+      - name: Run Scraper (w/ ML)
         run: |
-          cd news-scraper
           python scraper.py
 
       - name: Commit and Push
         run: |
-          git config user.name "Scraper Bot"
-          git config user.email "actions@github.com"
-          git add news-scraper/data/news.json
-          git commit -m "Update news data [skip ci]" || exit 0
+          git config user.name "Bot Scraper"
+          git config user.email "bot@news.local"
+          # Add all changed data: news, model, etc.
+          git add data/news.json data/model.pkl || true
+          git commit -m "Auto: Update news & model [skip ci]" || exit 0
           git push
+
