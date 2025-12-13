@@ -1118,7 +1118,8 @@
     "summary": "Noticias: Barranquilla, la región Caribe, Colombia y el mundo: Últimas noticias en deportes, junior, fútbol, economía, política y tecnología. Manténgase informado en ELHERALDO.CO",
     "scraped_at": "2025-12-13T17:12:55.196796",
     "user_score": null,
-    "predicted_score": 1.882771153210669
+    "predicted_score": 1.882771153210669,
+    "status": "discarded"
   },
   {
     "id": 61191910783583100,
