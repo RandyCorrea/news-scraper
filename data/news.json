@@ -740,7 +740,8 @@
     "summary": "Noticias y artículos de Opinión en Colombia y el mundo hoy. Las últimas columnas, editoriales y caricaturas de El Espectador sobre las noticias y actualidad del país.",
     "scraped_at": "2025-12-13T16:54:56.298887",
     "user_score": null,
-    "predicted_score": 2.861020993359518
+    "predicted_score": 2.861020993359518,
+    "status": "discarded"
   },
   {
     "id": 4734849162559700000,
