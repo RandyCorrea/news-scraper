@@ -275,9 +275,12 @@ async function testPortalExtraction() {
 
 async function updateGitHubFile(path, contentObj, msg) {
     const token = document.getElementById('gh-token').value.trim();
+    if (!token) throw new Error('Token is empty');
+
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
 
     try {
+        // 1. Get current SHA
         const getRes = await fetch(apiUrl, {
             headers: {
                 'Authorization': `token ${token}`,
@@ -285,9 +288,16 @@ async function updateGitHubFile(path, contentObj, msg) {
             }
         });
 
-        if (!getRes.ok) throw new Error('File not found or Token invalid');
+        if (!getRes.ok) {
+            if (getRes.status === 401) throw new Error('Bad Credentials (401). Check Token.');
+            if (getRes.status === 403) throw new Error('Permission Denied (403). Token needs "repo" scope.');
+            if (getRes.status === 404) throw new Error('File not found (404). Check Repo/Path.');
+            throw new Error(`Get File Error: ${getRes.status} ${getRes.statusText}`);
+        }
 
         const getData = await getRes.json();
+
+        // 2. Update
         const contentStr = JSON.stringify(contentObj, null, 2);
         const encoded = btoa(unescape(encodeURIComponent(contentStr)));
 
@@ -304,11 +314,22 @@ async function updateGitHubFile(path, contentObj, msg) {
             })
         });
 
-        if (putRes.ok) showToast('Saved!', 'success');
-        else throw new Error('Save Failed');
+        if (!putRes.ok) {
+            if (putRes.status === 401) throw new Error('Unauthorized (401).');
+            if (putRes.status === 403) throw new Error('Write Denied (403). Check Permissions.');
+            if (putRes.status === 409) throw new Error('Conflict (409). Try again.');
+            throw new Error(`Save Error: ${putRes.status} ${putRes.statusText}`);
+        }
+
+        showToast('Saved successfully!', 'success');
     } catch (e) {
         console.error(e);
-        showToast(e.message, 'error');
+        // Distinguish network errors (Failed to fetch) from API errors
+        if (e.message === 'Failed to fetch') {
+            showToast('Network Error. Check ID/CORS/AdBlock.', 'error');
+        } else {
+            showToast(e.message, 'error');
+        }
         throw e;
     }
 }
