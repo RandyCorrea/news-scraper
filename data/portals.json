@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1765617795995,
+    "url": "https://www.eltiempo.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
+  }
+]
