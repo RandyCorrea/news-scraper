@@ -1,0 +1,41 @@
+name: Scrape News
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for scrape'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          if [ -f news-scraper/requirements.txt ]; then pip install -r news-scraper/requirements.txt; fi
+
+      - name: Run Scraper
+        run: |
+          cd news-scraper
+          python scraper.py
+
+      - name: Commit and Push
+        run: |
+          git config user.name "Scraper Bot"
+          git config user.email "actions@github.com"
+          git add news-scraper/data/news.json
+          git commit -m "Update news data [skip ci]" || exit 0
+          git push
