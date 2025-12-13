@@ -8,5 +8,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765617880040,
+    "url": "https://www.semana.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
