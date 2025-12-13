@@ -15,28 +15,42 @@ let portalsData = [];
 
 // Init
 document.addEventListener('DOMContentLoaded', async () => {
-    // Tab Switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(btn.dataset.tab).classList.add('active');
+    try {
+        // Global Error Handler for user visibility
+        window.onerror = function (msg, url, line) {
+            GRID.innerHTML = `<div class="error-msg">JS Error: ${msg} (Line ${line})</div>`;
+            return false;
+        };
+
+        // Tab Switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
         });
-    });
 
-    // Load Data
-    await Promise.all([loadNews(), loadPortals()]);
+        // Load Data
+        await Promise.all([loadNews(), loadPortals()]);
 
-    // Events
-    document.getElementById('test-portal-btn').addEventListener('click', testPortalExtraction);
-    document.getElementById('save-portal-btn').addEventListener('click', saveNewPortal);
-    document.getElementById('trigger-btn').addEventListener('click', triggerScraper);
-    document.getElementById('check-links-btn').addEventListener('click', checkLinks);
-    document.getElementById('verify-btn').addEventListener('click', verifyToken);
+        // Events
+        document.getElementById('test-portal-btn').addEventListener('click', testPortalExtraction);
+        document.getElementById('save-portal-btn').addEventListener('click', saveNewPortal);
+        document.getElementById('trigger-btn').addEventListener('click', triggerScraper);
+        document.getElementById('check-links-btn').addEventListener('click', checkLinks);
+        document.getElementById('verify-btn').addEventListener('click', verifyToken);
 
-    // Initial Icons
-    lucide.createIcons();
+        // Initial Icons
+        lucide.createIcons();
+    } catch (e) {
+        console.error("Init Error", e);
+        GRID.innerHTML = `<div style="padding:20px; color:red;">
+            <h3>Initialization Error</h3>
+            <pre>${e.message}\n${e.stack}</pre>
+        </div>`;
+    }
 });
 
 async function loadNews() {
