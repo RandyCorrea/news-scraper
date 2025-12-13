@@ -895,9 +895,8 @@
     "image": "https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2025/12/13/693d8592f3baa.r_d.1026-358-6250.jpeg",
     "summary": "El alemán es el director de fútbol global de Red Bull. La marca le puso un límite a los rumores que llegan desde Inglaterra.",
     "scraped_at": "2025-12-13T16:54:28.528651",
-    "user_score": 1,
-    "predicted_score": 2.4452597256265807,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 2.4452597256265807
   },
   {
     "id": 463141657179870460,
@@ -908,9 +907,8 @@
     "image": "https://d2yoo3qu6vrk5d.cloudfront.net/comercial/images/ogimage.jpg",
     "summary": "Lo más visto y lo más popular en el pulzo.com Colombia y el mundo 24 horas - Pulzo",
     "scraped_at": "2025-12-13T16:54:52.592859",
-    "user_score": 1,
-    "predicted_score": 2.4392868403403862,
-    "status": "discarded"
+    "user_score": null,
+    "predicted_score": 2.4392868403403862
   },
   {
     "id": 3730610849293629000,
@@ -922,8 +920,7 @@
     "summary": "Con cuatro rutas recién inauguradas, Satena consolida a Barranquilla como plataforma estratégica para unir costa e interior",
     "scraped_at": "2025-12-13T16:55:02.176388",
     "user_score": null,
-    "predicted_score": 2.260662262693447,
-    "status": "discarded"
+    "predicted_score": 2.260662262693447
   },
   {
     "id": 6893233142684301000,
@@ -935,8 +932,7 @@
     "summary": "Sin la luz de los reflectores sobre ellos, Jennifer Pedraza y Gabriel Becerra consolidaron sus agendas tras llegar al Congreso en 2022.",
     "scraped_at": "2025-12-13T16:55:00.030860",
     "user_score": null,
-    "predicted_score": 2.159028272017544,
-    "status": "discarded"
+    "predicted_score": 2.159028272017544
   },
   {
     "id": 3471691543554620000,
