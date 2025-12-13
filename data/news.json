@@ -73,8 +73,7 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594356",
     "user_score": null,
-    "predicted_score": 5,
-    "status": "discarded"
+    "predicted_score": 5
   },
   {
     "id": 7730042848519170000,
@@ -84,7 +83,8 @@
     "image": "https://placehold.co/600x400?text=News",
     "scraped_at": "2025-12-13T06:38:04.594345",
     "user_score": null,
-    "predicted_score": 5
+    "predicted_score": 5,
+    "status": "discarded"
   },
   {
     "id": 5337015004836888000,
