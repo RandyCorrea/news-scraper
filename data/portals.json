@@ -98,5 +98,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645255772,
+    "url": "https://extra.com.co/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
