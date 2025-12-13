@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Initial Icons
         lucide.createIcons();
+
+        // Auto-load Token
+        const savedToken = localStorage.getItem('gh_token');
+        if (savedToken) {
+            document.getElementById('gh-token').value = savedToken;
+            verifyToken(); // Auto-login
+        }
+
     } catch (e) {
         console.error("Init Error", e);
         GRID.innerHTML = `<div style="padding:20px; color:red;">
@@ -159,6 +167,9 @@ async function verifyToken() {
 
         if (res.ok) {
             const user = await res.json();
+            // Save to localStorage
+            localStorage.setItem('gh_token', token);
+
             showToast(`Connected as ${user.login}`, 'success');
             btn.innerHTML = '<i data-lucide="check"></i>';
             btn.classList.add('success');
