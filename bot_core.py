@@ -93,7 +93,9 @@ class PortalManager:
     def _scrape_portal(self, portal):
         # Generic scraper using selectors from JSON
         # If selectors missing, try heuristic fallback
-        headers = {"User-Agent": "Mozilla/5.0"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
         try:
             resp = requests.get(portal['url'], headers=headers, timeout=10)
             soup = BeautifulSoup(resp.content, 'lxml')
