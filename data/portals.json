@@ -158,5 +158,15 @@
       "item": "h2",
       "link": "a"
     }
+  },
+  {
+    "id": 1765645536996,
+    "url": "https://www.zonacero.com/",
+    "section": "World",
+    "enabled": true,
+    "selectors": {
+      "item": "h2",
+      "link": "a"
+    }
   }
 ]
