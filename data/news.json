@@ -1070,7 +1070,8 @@
     "summary": "Noticias de Colombia, Entretenimiento, Farandula, Deportes - Bogotá - Boyacá - Cali - Cauca - Girardot - Huila - Pasto - Palmira - Llanos",
     "scraped_at": "2025-12-13T17:12:23.171823",
     "user_score": null,
-    "predicted_score": 1.9332163695682678
+    "predicted_score": 1.9332163695682678,
+    "status": "discarded"
   },
   {
     "id": 3499157163696801000,
