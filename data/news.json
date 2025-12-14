@@ -926,7 +926,8 @@
     "summary": "La empresaria Zulma Guzmán negó estar detrás del crimen de dos menores de edad fallecidas tras consumir frambuesas envenenadas.",
     "scraped_at": "2025-12-13T18:20:23.148070",
     "user_score": null,
-    "predicted_score": 2.6786423310659853
+    "predicted_score": 2.6786423310659853,
+    "status": "discarded"
   },
   {
     "id": 4734849162559700000,
@@ -1003,7 +1004,8 @@
     "summary": "La institución aseguró que los hechos ya están en conocimiento de los entes de control y que existen investigaciones disciplinarias y penales en curso.",
     "scraped_at": "2025-12-14T02:34:13.319557",
     "user_score": null,
-    "predicted_score": 2.6590228836312404
+    "predicted_score": 2.6590228836312404,
+    "status": "discarded"
   },
   {
     "id": 4471240578104039400,
