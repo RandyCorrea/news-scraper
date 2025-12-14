@@ -692,7 +692,8 @@
     "summary": "Empate sin goles entre Atlético Nacional e Independiente Medellín en la ida de la final de la Copa BetPlay deja todo por definirse el 17 de diciembre.",
     "scraped_at": "2025-12-14T02:34:50.046663",
     "user_score": null,
-    "predicted_score": 3.735958985007298
+    "predicted_score": 3.735958985007298,
+    "status": "discarded"
   },
   {
     "id": 413255880038837500,
