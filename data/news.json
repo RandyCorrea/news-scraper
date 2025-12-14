@@ -1316,7 +1316,8 @@
     "summary": "Cinco personas fueron judicializadas por presunta extracción y comercialización ilegal de oro en el Nordeste y Bajo Cauca antioqueño.",
     "scraped_at": "2025-12-13T17:12:38.715345",
     "user_score": 5,
-    "predicted_score": 2.057586901641472
+    "predicted_score": 2.057586901641472,
+    "status": "discarded"
   },
   {
     "id": 3552837648011221500,
@@ -1328,7 +1329,8 @@
     "summary": "Un “suplemento digital” puede ser una publicación en línea que acompaña a un medio de comunicación tradicional, similar a un suplemento de periódico p...",
     "scraped_at": "2025-12-14T02:35:39.663224",
     "user_score": null,
-    "predicted_score": 1.984079449333159
+    "predicted_score": 1.984079449333159,
+    "status": "discarded"
   },
   {
     "id": 4587501308648894000,
