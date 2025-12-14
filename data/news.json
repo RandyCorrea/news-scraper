@@ -900,7 +900,8 @@
     "summary": "Hombre de 40 años desaparece en Medellín. CTI solicita ayuda ciudadana y proporciona teléfonos de contacto para informar sobre su ubicación.",
     "scraped_at": "2025-12-14T01:18:52.753765",
     "user_score": null,
-    "predicted_score": 2.6976937779881247
+    "predicted_score": 2.6976937779881247,
+    "status": "discarded"
   },
   {
     "id": 5480799781323012000,
