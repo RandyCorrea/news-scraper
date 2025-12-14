@@ -1556,7 +1556,8 @@
     "summary": "Encuentre acá las noticias más importantes de Colombia, acontecimientos más relevantes. Análisis, reportajes y noticias en tiempo real en la sección nación de Semana.",
     "scraped_at": "2025-12-14T01:17:41.870738",
     "user_score": null,
-    "predicted_score": 1.6272947176557824
+    "predicted_score": 1.6272947176557824,
+    "status": "discarded"
   },
   {
     "id": 7746480921029216000,
