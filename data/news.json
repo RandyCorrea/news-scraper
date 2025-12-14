@@ -1082,7 +1082,8 @@
     "summary": "La decisión se toma en la medida en que contribuya con 'aportes verificables' en el proceso de paz con la Coordinadora Nacional Ejército Bolivariano.",
     "scraped_at": "2025-12-13T16:54:28.810289",
     "user_score": 4,
-    "predicted_score": 2.605244538804096
+    "predicted_score": 2.605244538804096,
+    "status": "discarded"
   },
   {
     "id": 882466410372767900,
@@ -1107,7 +1108,8 @@
     "summary": "Cerca de mil policías fueron desplegados para el clásico paisa en el Atanasio Girardot, con vigilancia interna, externa y patrullaje en el Valle de Aburrá.",
     "scraped_at": "2025-12-13T18:20:49.142898",
     "user_score": null,
-    "predicted_score": 2.5743519662431154
+    "predicted_score": 2.5743519662431154,
+    "status": "discarded"
   },
   {
     "id": 5520562422102534000,
