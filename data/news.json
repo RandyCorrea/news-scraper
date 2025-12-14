@@ -1342,7 +1342,8 @@
     "summary": "El estudio, con cifras completas hasta 2023, es el primero que la OMS publica sobre esta cuestión en cuatro años, y por primera vez incluye estimacion...",
     "scraped_at": "2025-12-14T01:19:12.475040",
     "user_score": null,
-    "predicted_score": 1.984079449333159
+    "predicted_score": 1.984079449333159,
+    "status": "discarded"
   },
   {
     "id": 2879536719705293000,
@@ -1354,7 +1355,8 @@
     "summary": "En un foro realizado por el Día Internacional de los Derechos Humanos se discutieron temas como la violencia intrafamiliar y la necesidad de fortalece...",
     "scraped_at": "2025-12-13T18:21:06.082456",
     "user_score": null,
-    "predicted_score": 1.984079449333159
+    "predicted_score": 1.984079449333159,
+    "status": "discarded"
   },
   {
     "id": 555894081914423800,
