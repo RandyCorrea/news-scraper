@@ -744,7 +744,8 @@
     "summary": "Antioquia activó un Consejo de Seguridad permanente tras el anuncio de un paro armado del Eln y anunció refuerzo de controles y vigilancia.",
     "scraped_at": "2025-12-14T02:34:49.364328",
     "user_score": null,
-    "predicted_score": 3.212994080421707
+    "predicted_score": 3.212994080421707,
+    "status": "discarded"
   },
   {
     "id": 8098809401088909000,
