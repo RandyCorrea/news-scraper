@@ -757,7 +757,8 @@
     "summary": "Cuatro de los judicializados aceptaron cargos por delitos relacionados con explotación ilícita de minerales y fraude procesal.",
     "scraped_at": "2025-12-14T02:34:45.084760",
     "user_score": 4,
-    "predicted_score": 3.192888520169441
+    "predicted_score": 3.192888520169441,
+    "status": "discarded"
   },
   {
     "id": 4915245024630178000,
