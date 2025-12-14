@@ -1212,7 +1212,8 @@
     "summary": "Dada la gravedad de su estado, fue remitido al Hospital Pablo Tobón Uribe, donde falleció dos días después.",
     "scraped_at": "2025-12-13T17:12:36.042993",
     "user_score": 5,
-    "predicted_score": 2.3290083715292123
+    "predicted_score": 2.3290083715292123,
+    "status": "discarded"
   },
   {
     "id": 8189414564546811000,
@@ -1224,7 +1225,8 @@
     "summary": "Vea aquí todas los artículos de Hugo Santiago Caro y las noticias relacionadas a Hugo Santiago Caro en El Espectador.",
     "scraped_at": "2025-12-14T02:33:57.774354",
     "user_score": null,
-    "predicted_score": 2.296744344501011
+    "predicted_score": 2.296744344501011,
+    "status": "discarded"
   },
   {
     "id": 9158392503847882000,
