@@ -1,5 +1,53 @@
 [
   {
+    "id": 8524372285484485993,
+    "source": "World",
+    "title": "Reportan r\u00e1fagas de fuego y p\u00e1nico en el centro de Caracas cerca del Palacio de Miraflores",
+    "url": "https://h13n.com/reportan-rafagas-de-fuego-y-panico-en-el-centro-de-caracas-cerca-del-palacio-de-miraflores/",
+    "telegraph_url": "https://telegra.ph/Reportan-r\u00e1fagas-de-fuego-y-p\u00e1nico-en-el-centro-de-Caracas-cerca-del-Palacio-de-Miraflores-01-06",
+    "image": "https://i0.wp.com/h13n.com/wp-content/uploads/2026/01/MIRAFLORES.webp",
+    "summary": "De acuerdo con reportes ciudadanos en redes sociales, la situaci\u00f3n se present\u00f3 hacia las 8:00 p. m., cuando\u00a0 drones no identificados sobrevolaron el complejo",
+    "scraped_at": "2026-01-06T06:28:28.842156",
+    "user_score": null,
+    "predicted_score": 2.7313137640839553
+  },
+  {
+    "id": 8562365550397640885,
+    "source": "World",
+    "title": "LG presenta a CLOiD, su robot dom\u00e9stico que hace las tareas del hogar",
+    "url": "https://www.diarioadn.co/noticias/lg-presenta-cloid-su-robot-domestico-que-hace-las-tareas-del-hogar+articulo+72198",
+    "telegraph_url": "https://telegra.ph/LG-presenta-a-CLOiD-su-robot-dom\u00e9stico-que-hace-las-tareas-del-hogar-01-06",
+    "image": "https://www.diarioadn.co/static/assets/backend/styles/1200x675/public/2026-01/[3]%20LG%20CLOiD.jpg",
+    "summary": "El nuevo asistente rob\u00f3tico de la marca coreana se toma el CES 2026 con demostraciones que parecen de ciencia ficci\u00f3n.",
+    "scraped_at": "2026-01-06T06:28:21.196053",
+    "user_score": null,
+    "predicted_score": 1.8310190851943062
+  },
+  {
+    "id": 5568401793783226724,
+    "source": "World",
+    "title": "Tiroteos en Caracas: esto se sabe de las nuevas detonaciones en la capital de Venezuela",
+    "url": "https://www.elespectador.com/mundo/venezuela/tiroteos-en-caracas-esto-se-sabe-de-las-nuevas-detonaciones-en-la-capital-de-venezuela/",
+    "telegraph_url": "https://telegra.ph/Tiroteos-en-Caracas-esto-se-sabe-de-las-nuevas-detonaciones-en-la-capital-de-Venezuela-01-06",
+    "image": "https://www.elespectador.com/resizer/v2/MTELQO3635D4TLUJ6RXB3JKICI.jpg?auth=b478134204455cf8b068aed290e34a82c756e8baadadf12203eb9605a2961d44&width=657&smart=true&quality=60",
+    "summary": "De momento, ninguna autoridad se ha pronunciado sobre las r\u00e1fagas de disparos escuchadas en Caracas.",
+    "scraped_at": "2026-01-06T06:27:00.099994",
+    "user_score": null,
+    "predicted_score": 2.865392272190508
+  },
+  {
+    "id": 7968035865977535777,
+    "source": "World",
+    "title": "Es un \u201csecuestro\u201d: el r\u00e9gimen venezolano usa la captura de Maduro para fortalecerse",
+    "url": "https://www.elespectador.com/mundo/venezuela/es-un-secuestro-el-regimen-venezolano-usa-la-captura-de-maduro-para-fortalecerse/",
+    "telegraph_url": "https://telegra.ph/Es-un-secuestro-el-r\u00e9gimen-venezolano-usa-la-captura-de-Maduro-para-fortalecerse-01-06",
+    "image": "https://www.elespectador.com/resizer/v2/QAM5FSDLJVH47HEP624TELWPFM.jpg?auth=df04ec143279f5c861b688164d24e5b666f5da66a546306b6d804dca215584d8&width=657&smart=true&quality=60",
+    "summary": "El chavismo surfea la crisis con una represi\u00f3n que amenaza con aumentar.",
+    "scraped_at": "2026-01-06T06:26:59.473934",
+    "user_score": null,
+    "predicted_score": 2.4667337547910373
+  },
+  {
     "id": 3509028417850489807,
     "source": "World",
     "title": "Medell\u00edn avanza en un 65 % en obras para mitigar da\u00f1os por lluvias",
