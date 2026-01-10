@@ -1506,7 +1506,8 @@
     "summary": "Cierre total en la vía al Urabá por caída de material. Autopistas Urabá avanza sin pausa en la remoción, sin hora definida de reapertura.",
     "scraped_at": "2025-12-27T06:24:48.915903",
     "user_score": null,
-    "predicted_score": 3.517040102099723
+    "predicted_score": 3.517040102099723,
+    "status": "discarded"
   },
   {
     "id": 6441532762519837000,
@@ -1518,7 +1519,8 @@
     "summary": "Comunidad venezolana en Medellín se ha reunido para celebrar la captura de Nicolás Maduro. Los migrantes sueñan con regresar a su país.",
     "scraped_at": "2026-01-04T18:23:37.865915",
     "user_score": null,
-    "predicted_score": 3.503018872016706
+    "predicted_score": 3.503018872016706,
+    "status": "discarded"
   },
   {
     "id": 7246122964422577000,
@@ -1530,7 +1532,8 @@
     "summary": "Delcy Rodríguez, una de las mujeres más poderosas del círculo de Nicolás Maduro, estaría al frente de la transición. ¿Quién es?",
     "scraped_at": "2026-01-04T01:22:16.846786",
     "user_score": null,
-    "predicted_score": 3.4933563839970945
+    "predicted_score": 3.4933563839970945,
+    "status": "discarded"
   },
   {
     "id": 1418649261894505200,
