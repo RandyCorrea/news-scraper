@@ -973,7 +973,8 @@
     "summary": "La definición será el miércoles 17 de diciembre, cuando Independiente Medellín oficie como local",
     "scraped_at": "2025-12-14T18:22:27.187184",
     "user_score": null,
-    "predicted_score": 3.7238642755123297
+    "predicted_score": 3.7238642755123297,
+    "status": "discarded"
   },
   {
     "id": 2065235223616157000,
@@ -985,7 +986,8 @@
     "summary": "Las autoridades locales indicaron que iniciarán las investigaciones pertinentes para conocer la causa de la emergencia.",
     "scraped_at": "2025-12-20T06:24:51.855186",
     "user_score": null,
-    "predicted_score": 3.722238162174228
+    "predicted_score": 3.722238162174228,
+    "status": "discarded"
   },
   {
     "id": 2969617053477123000,
@@ -997,7 +999,8 @@
     "summary": "Entre los lesionados hay tres menores de edad, quienes son atendidos en una UCI",
     "scraped_at": "2025-12-26T06:26:21.949815",
     "user_score": null,
-    "predicted_score": 3.7151172041388247
+    "predicted_score": 3.7151172041388247,
+    "status": "discarded"
   },
   {
     "id": 7535631546290053000,
