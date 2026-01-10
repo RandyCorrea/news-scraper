@@ -156,7 +156,7 @@ function renderNews(articles) {
 
 // Global scope for onclick handlers
 window.discardArticle = async function (id) {
-    if (!confirm('Discard this article?')) return;
+    // Direct discard without confirmation
 
     // Optimistic remove
     const article = newsData.find(a => String(a.id) === String(id));
