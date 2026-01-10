@@ -353,6 +353,7 @@ async function updateGitHubFile(path, contentObj, msg) {
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
 
     // Get SHA
+    let sha = null;
     const getRes = await fetch(apiUrl, {
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -360,14 +361,23 @@ async function updateGitHubFile(path, contentObj, msg) {
         }
     });
 
-    if (!getRes.ok) throw new Error(`Fetch Error ${getRes.status}`);
-    const getData = await getRes.json();
-    const sha = getData.sha;
+    if (getRes.ok) {
+        const getData = await getRes.json();
+        sha = getData.sha;
+    } else if (getRes.status !== 404) {
+        throw new Error(`Fetch Error ${getRes.status}`);
+    }
 
-    // Update
+    // Update or Create
     const contentStr = JSON.stringify(contentObj, null, 2);
     // Safe Base64 encoding for UTF-8
     const encoded = btoa(unescape(encodeURIComponent(contentStr)));
+
+    const body = {
+        message: msg,
+        content: encoded
+    };
+    if (sha) body.sha = sha;
 
     const putRes = await fetch(apiUrl, {
         method: 'PUT',
@@ -376,11 +386,7 @@ async function updateGitHubFile(path, contentObj, msg) {
             'Content-Type': 'application/json',
             'Accept': 'application/vnd.github.v3+json'
         },
-        body: JSON.stringify({
-            message: msg,
-            content: encoded,
-            sha: sha
-        })
+        body: JSON.stringify(body)
     });
 
     if (!putRes.ok) throw new Error(`Save Error ${putRes.status}`);
