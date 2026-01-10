@@ -1753,7 +1753,8 @@
     "summary": "El capturado se encuentra bajo custodia y ha sido dejado a disposición de la Fiscalía.",
     "scraped_at": "2025-12-24T18:24:01.361608",
     "user_score": null,
-    "predicted_score": 3.3992803931473325
+    "predicted_score": 3.3992803931473325,
+    "status": "discarded"
   },
   {
     "id": 8516763875663562000,
@@ -1765,7 +1766,8 @@
     "summary": "El hecho se presentó al interior de las celdas de la estación de Policía del corregimiento de Altavista, en el suroccidente de Medellín.",
     "scraped_at": "2026-01-07T18:26:13.637689",
     "user_score": null,
-    "predicted_score": 3.3969436637212267
+    "predicted_score": 3.3969436637212267,
+    "status": "discarded"
   },
   {
     "id": 4551758624860299300,
