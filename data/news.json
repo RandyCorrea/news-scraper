@@ -1935,7 +1935,8 @@
     "summary": "El reporte médico indica que el 32% de los animalitos ingresados fallecieron debido a traumas severos.",
     "scraped_at": "2026-01-05T18:26:53.920550",
     "user_score": null,
-    "predicted_score": 3.3595202092236116
+    "predicted_score": 3.3595202092236116,
+    "status": "discarded"
   },
   {
     "id": 7206990942518922000,
@@ -1947,7 +1948,8 @@
     "summary": "El político aseguró que se vienen décadas de inestabilidad y guerra civil, luego de que la soberanía de Venezuela fuera violada",
     "scraped_at": "2026-01-04T01:22:28.178300",
     "user_score": null,
-    "predicted_score": 3.3564400020693137
+    "predicted_score": 3.3564400020693137,
+    "status": "discarded"
   },
   {
     "id": 4929742758705065000,
@@ -1959,7 +1961,8 @@
     "summary": "“¡Que viva Medellín!” es una expresión común de orgullo y aprecio por la ciudad de Medellín, Colombia y su cultura. Refleja un sentimiento positivo ha...",
     "scraped_at": "2025-12-18T06:30:45.803086",
     "user_score": null,
-    "predicted_score": 3.3562116682781085
+    "predicted_score": 3.3562116682781085,
+    "status": "discarded"
   },
   {
     "id": 2463731014550622700,
