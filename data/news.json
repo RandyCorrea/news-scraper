@@ -1702,18 +1702,6 @@
     "predicted_score": 2.0958095125508494
   },
   {
-    "id": 8290179998647712000,
-    "source": "World",
-    "title": "Noticias",
-    "url": "https://www.pulzo.com/directrices-editoriales",
-    "telegraph_url": null,
-    "image": "https://d2yoo3qu6vrk5d.cloudfront.net/comercial/images/ogimage.jpg",
-    "summary": "Últimas noticias de Colombia y el mundo.",
-    "scraped_at": "2026-01-10T03:38:31.197016",
-    "user_score": null,
-    "predicted_score": 2.0815134942588798
-  },
-  {
     "id": 8347660496904634000,
     "source": "World",
     "title": "IPC, últimas noticias | Dane reveló cifra y quedó en 5,1%: estos son los productos que se modificarían para 2026; así subirá arriendo, pensiones y más",
@@ -1724,18 +1712,6 @@
     "scraped_at": "2026-01-09T01:15:17.461352",
     "user_score": null,
     "predicted_score": 2.075371507559585
-  },
-  {
-    "id": 2573526310398484500,
-    "source": "World",
-    "title": "Magazín Cultural de El Espectador: noticias de cultura, literatura y arte",
-    "url": "https://www.elespectador.com/el-magazin-cultural/",
-    "telegraph_url": "https://telegra.ph/Magazín-Cultural-de-El-Espectador-noticias-de-cultura-literatura-y-arte-01-10",
-    "image": "https://www.elespectador.com/pf/resources/images/redes_espectador.webp?d=1146",
-    "summary": "Últimas noticias culturales hoy. Información y actualidad de arte, literatura, autores, escritores, eventos literarios y más. Todo sobre libros, poemas, obras literarias, reportajes, trabajos discográficos, historia musical y más.",
-    "scraped_at": "2026-01-10T01:13:24.617209",
-    "user_score": null,
-    "predicted_score": 2.0581851621628453
   },
   {
     "id": 4030350775559237000,
