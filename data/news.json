@@ -13957,7 +13957,8 @@
     "summary": "El colombiano Luis Díaz vuelve a figurar en un ranking de élite del fútbol internacional. De acuerdo con el más reciente informe del Observatorio de Fútbol",
     "scraped_at": "2026-01-09T12:34:54.063192",
     "user_score": null,
-    "predicted_score": 1.7479864301481216
+    "predicted_score": 1.7479864301481216,
+    "status": "discarded"
   },
   {
     "id": 5390650255325598000,
@@ -13969,7 +13970,8 @@
     "summary": "El Servicio Geológico Colombiano entregó detalles sobre el movimiento telúrico.",
     "scraped_at": "2026-01-01T01:20:58.583934",
     "user_score": null,
-    "predicted_score": 1.6636345468750178
+    "predicted_score": 1.6636345468750178,
+    "status": "discarded"
   },
   {
     "id": 5238053313421826000,
@@ -13981,7 +13983,8 @@
     "summary": "Esta será la tercera etapa del futbolista con el club bogotano.",
     "scraped_at": "2026-01-08T12:35:44.217414",
     "user_score": null,
-    "predicted_score": 1.6353214553593645
+    "predicted_score": 1.6353214553593645,
+    "status": "discarded"
   },
   {
     "id": 7028627958290180000,
