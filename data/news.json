@@ -1246,7 +1246,8 @@
     "summary": "De acuerdo con registros visuales del lugar, la víctima quedó tendida sobre el asfalto junto a su vehículo de color negro. Aunque al sitio arribó una",
     "scraped_at": "2025-12-18T18:25:44.057336",
     "user_score": null,
-    "predicted_score": 3.575826235142064
+    "predicted_score": 3.575826235142064,
+    "status": "discarded"
   },
   {
     "id": 6478220821159949000,
@@ -1258,7 +1259,8 @@
     "summary": "Medellín cerró 2025 con avances importantes en la promoción de la equidad gracias a la consolidación de la Alianza para la Igualdad de Género, una estrategia",
     "scraped_at": "2025-12-31T18:23:57.724481",
     "user_score": null,
-    "predicted_score": 3.568396139708781
+    "predicted_score": 3.568396139708781,
+    "status": "discarded"
   },
   {
     "id": 3372399987457389600,
@@ -1270,7 +1272,8 @@
     "summary": "Deslizamientos mantienen restricciones en el corredor vial; los costos de viaje en servicio público aumentaron hasta un 13%.",
     "scraped_at": "2025-12-29T06:29:24.180624",
     "user_score": null,
-    "predicted_score": 3.5626669975023324
+    "predicted_score": 3.5626669975023324,
+    "status": "discarded"
   },
   {
     "id": 2934457493694822000,
