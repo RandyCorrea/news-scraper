@@ -1077,7 +1077,8 @@
     "summary": "Policía de Antioquia reporta múltiples capturas de armas, drogas y órdenes judiciales en Rionegro, Salgar, Tarazá y otros municipios en los primeros días de 2026.",
     "scraped_at": "2026-01-03T06:25:09.395512",
     "user_score": null,
-    "predicted_score": 3.6303162225198986
+    "predicted_score": 3.6303162225198986,
+    "status": "discarded"
   },
   {
     "id": 3917055034676899000,
@@ -1089,7 +1090,8 @@
     "summary": "Corantioquia pide a la comunidad reportar oportunamente la presencia de la especie, indicando el sector de su aparición.",
     "scraped_at": "2025-12-21T01:19:03.803352",
     "user_score": null,
-    "predicted_score": 3.6303162225198986
+    "predicted_score": 3.6303162225198986,
+    "status": "discarded"
   },
   {
     "id": 3704625537142087000,
@@ -1101,7 +1103,8 @@
     "summary": "Lo que debía ser una celebración se transformó en tragedia para los propietarios del Rancho Canaway, en el municipio de La Ceja",
     "scraped_at": "2025-12-29T12:35:53.307390",
     "user_score": null,
-    "predicted_score": 3.618308021915756
+    "predicted_score": 3.618308021915756,
+    "status": "discarded"
   },
   {
     "id": 6766011690297673000,
