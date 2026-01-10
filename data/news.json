@@ -1194,7 +1194,8 @@
     "summary": "De acuerdo con la entidad podría presentarse un incremento cercano al 50% en el precio para el consumidor.",
     "scraped_at": "2026-01-01T01:22:37.873101",
     "user_score": null,
-    "predicted_score": 3.590705123405729
+    "predicted_score": 3.590705123405729,
+    "status": "discarded"
   },
   {
     "id": 3717947784735307300,
