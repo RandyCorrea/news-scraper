@@ -1207,7 +1207,8 @@
     "summary": "Víctimas del extinto Cartel de Medellín cuestionan la subasta de los bienes de Pablo Escobar.",
     "scraped_at": "2026-01-09T12:34:51.833599",
     "user_score": null,
-    "predicted_score": 3.588515861365636
+    "predicted_score": 3.588515861365636,
+    "status": "discarded"
   },
   {
     "id": 6262523530120097000,
@@ -1219,7 +1220,8 @@
     "summary": "Entre el 31 de diciembre y el 1 de enero, 26 personas resultaron heridas por pólvora en Antioquia, alertan autoridades.",
     "scraped_at": "2026-01-01T18:24:25.850566",
     "user_score": null,
-    "predicted_score": 3.5820071598995784
+    "predicted_score": 3.5820071598995784,
+    "status": "discarded"
   },
   {
     "id": 7990623225814265000,
@@ -1231,7 +1233,8 @@
     "summary": "Los operativos se realizaron en los municipios de San Roque y Remedios.",
     "scraped_at": "2026-01-09T01:17:03.913643",
     "user_score": null,
-    "predicted_score": 3.5805276003500985
+    "predicted_score": 3.5805276003500985,
+    "status": "discarded"
   },
   {
     "id": 1727346908018809600,
