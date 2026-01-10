@@ -1779,7 +1779,8 @@
     "summary": "Medellín ejecuta obras en zonas de alto riesgo para reducir emergencias por lluvias, estabilizar taludes y recuperar vías y senderos afectados.",
     "scraped_at": "2025-12-28T06:25:38.804623",
     "user_score": null,
-    "predicted_score": 3.388350163563672
+    "predicted_score": 3.388350163563672,
+    "status": "discarded"
   },
   {
     "id": 373188623823138560,
@@ -1791,7 +1792,8 @@
     "summary": "La final de la Copa BetPlay 2025 terminó con disturbios en el Atanasio Girardot. Hinchas invadieron la cancha y hubo enfrentamientos con el Esmad.",
     "scraped_at": "2025-12-18T06:26:21.566783",
     "user_score": null,
-    "predicted_score": 3.377822892317619
+    "predicted_score": 3.377822892317619,
+    "status": "discarded"
   },
   {
     "id": 122197105303976210,
@@ -1803,7 +1805,8 @@
     "summary": "Liga BetPlay: Tolima y Junior encaran esta noche los últimos 90 minutos del semestre con la estrella de diciembre en juego.",
     "scraped_at": "2025-12-17T01:08:31.378053",
     "user_score": null,
-    "predicted_score": 3.3730671699595196
+    "predicted_score": 3.3730671699595196,
+    "status": "discarded"
   },
   {
     "id": 2430386956335069700,
