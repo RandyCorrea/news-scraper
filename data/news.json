@@ -1428,7 +1428,8 @@
     "summary": "Medicina Legal en Medellín mantiene un cuerpo sin reclamar desde el 21 de diciembre y habilita líneas telefónicas para ubicar familiares.",
     "scraped_at": "2025-12-24T06:27:37.377708",
     "user_score": null,
-    "predicted_score": 3.5458977533348066
+    "predicted_score": 3.5458977533348066,
+    "status": "discarded"
   },
   {
     "id": 2117197651566235000,
@@ -1440,7 +1441,8 @@
     "summary": "El alto consumo de licor dañó el ambiente en muchos barrios del Valle de Aburrá, donde las llamadas al 123 de la Policía no pararon de sonar",
     "scraped_at": "2026-01-02T12:32:39.089878",
     "user_score": null,
-    "predicted_score": 3.5440030969766445
+    "predicted_score": 3.5440030969766445,
+    "status": "discarded"
   },
   {
     "id": 2236301545252945700,
@@ -1452,7 +1454,8 @@
     "summary": "La Alcaldía de Medellín avanza con firmeza en las investigaciones por los desmanes registrados en el estadio Atanasio Girardot, tras la final de la Copa",
     "scraped_at": "2025-12-19T18:24:26.838976",
     "user_score": null,
-    "predicted_score": 3.539111882283148
+    "predicted_score": 3.539111882283148,
+    "status": "discarded"
   },
   {
     "id": 5005067584025543000,
