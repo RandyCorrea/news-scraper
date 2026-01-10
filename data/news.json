@@ -13620,7 +13620,8 @@
     "summary": "Hoy se conmemora una década del lanzamiento de Blackstar, el último disco de uno de los artistas más originales de todos los tiempos",
     "scraped_at": "2026-01-09T06:27:45.474999",
     "user_score": null,
-    "predicted_score": 1.910089978534891
+    "predicted_score": 1.910089978534891,
+    "status": "discarded"
   },
   {
     "id": 6433252142999718000,
@@ -13632,7 +13633,8 @@
     "summary": "El presidente de Once Caldas, Daniel Jaramillo, habló sobre los futbolistas que espera contratar para el próximo año que será dirigido por El Arriero",
     "scraped_at": "2025-12-31T12:32:01.850036",
     "user_score": null,
-    "predicted_score": 1.9040397633574497
+    "predicted_score": 1.9040397633574497,
+    "status": "discarded"
   },
   {
     "id": 8277252508616730000,
