@@ -1285,7 +1285,8 @@
     "summary": "Se tendrá tres anillos de seguridad y un grupo de motorizados que garantizarán la seguridad de los jugadores",
     "scraped_at": "2025-12-17T18:26:38.830074",
     "user_score": null,
-    "predicted_score": 3.5574949780125085
+    "predicted_score": 3.5574949780125085,
+    "status": "discarded"
   },
   {
     "id": 5939697090339050000,
@@ -1297,7 +1298,8 @@
     "summary": "Las tristes escenas han dado bastante de qué hablar sobre el comportamiento de las dos barras tras la final de la copa BetPlay.",
     "scraped_at": "2025-12-18T12:37:50.811350",
     "user_score": null,
-    "predicted_score": 3.556477696278172
+    "predicted_score": 3.556477696278172,
+    "status": "discarded"
   },
   {
     "id": 9104868905258584000,
@@ -1309,7 +1311,8 @@
     "summary": "Medellín llegó a 411 puntos de wifi gratis en parques, unidades deportivas y sedes de salud, y superó 40 millones de conexiones en 2025.",
     "scraped_at": "2025-12-28T18:23:43.071188",
     "user_score": null,
-    "predicted_score": 3.5524361397260398
+    "predicted_score": 3.5524361397260398,
+    "status": "discarded"
   },
   {
     "id": 4290338122441838000,
