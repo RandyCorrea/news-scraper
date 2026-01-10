@@ -13608,7 +13608,8 @@
     "summary": "El famoso sorteo celebrado cada fin de semana acaba de premiar a varios colombianos con un ingreso considerable gracias a su suerte.",
     "scraped_at": "2025-12-14T06:23:22.142072",
     "user_score": null,
-    "predicted_score": 1.9182111503741486
+    "predicted_score": 1.9182111503741486,
+    "status": "discarded"
   },
   {
     "id": 4030350775559237000,
