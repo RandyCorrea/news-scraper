@@ -1363,7 +1363,8 @@
     "summary": "Las autoridades revelaron detalles de las víctimas de este extraño caso de intoxicación que se presentó en la madrugada del 24 de diciembre.",
     "scraped_at": "2025-12-25T01:13:25.243260",
     "user_score": null,
-    "predicted_score": 3.5487624730277387
+    "predicted_score": 3.5487624730277387,
+    "status": "discarded"
   },
   {
     "id": 8463130219029103000,
@@ -1375,7 +1376,8 @@
     "summary": "Medellín volverá a vibrar al ritmo de la música electrónica en vivo con el anuncio del regreso de Rüfüs du Sol a Colombia. La reconocida banda australiana",
     "scraped_at": "2026-01-07T18:26:17.711845",
     "user_score": null,
-    "predicted_score": 3.5458977533348066
+    "predicted_score": 3.5458977533348066,
+    "status": "discarded"
   },
   {
     "id": 7341749701687475000,
@@ -1387,7 +1389,8 @@
     "summary": "Cuerpo de Fernando Giraldo Salazar permanece en Medicina Legal de Medellín desde el 31 de diciembre sin que aparezcan familiares.",
     "scraped_at": "2026-01-07T01:16:25.241678",
     "user_score": null,
-    "predicted_score": 3.5458977533348066
+    "predicted_score": 3.5458977533348066,
+    "status": "discarded"
   },
   {
     "id": 8586004710024026000,
