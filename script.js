@@ -456,7 +456,8 @@ async function saveSettings() {
             language: 'en'
         };
 
-        if (!GITHUB_TOKEN) throw new Error("GitHub Token required to save settings.");
+        const token = document.getElementById('gh-token').value.trim();
+        if (!token) throw new Error("GitHub Token required to save settings.");
 
         await updateGitHubFile(SETTINGS_SOURCE, JSON.stringify(config, null, 4), "Update NewsAPI Config");
         showToast("Settings Saved Successfully!", "success");
