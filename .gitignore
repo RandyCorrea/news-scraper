@@ -1,4 +1,7 @@
-venv/
 __pycache__/
 *.pyc
 .DS_Store
+.env
+/data/newsapi_config.json
+/data/telegraph_token.json
+bot_env/

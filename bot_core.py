@@ -7,9 +7,11 @@ from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
-from datetime import datetime
+from datetime import datetime, timedelta
 from newspaper import Article, Config
 from telegraph import Telegraph
+from fake_useragent import UserAgent
+from newsapi import NewsApiClient
 import nltk
 try:
     nltk.data.find('tokenizers/punkt')
@@ -20,48 +22,165 @@ except LookupError:
 MODEL_FILE = 'data/model.pkl'
 NEWS_FILE = 'data/news.json'
 PORTALS_FILE = 'data/portals.json'
+NEWSAPI_CONFIG_FILE = 'data/newsapi_config.json'
 TELEGRAPH_TOKEN_FILE = 'data/telegraph_token.json'
+
+class NewsAPIFetcher:
+    def __init__(self):
+        self.config = self._load_config()
+        self.api_key = self.config.get('api_key')
+        self.client = NewsApiClient(api_key=self.api_key) if self.api_key else None
+        self.publisher = TelegraphPublisher()
+
+    def _load_config(self):
+        if os.path.exists(NEWSAPI_CONFIG_FILE):
+             try:
+                with open(NEWSAPI_CONFIG_FILE, 'r') as f:
+                    return json.load(f)
+             except:
+                 return {}
+        return {}
+
+    def fetch_headlines(self):
+        if not self.client:
+            print("NewsAPI: No API Key configured.")
+            return []
+
+        print("Fetching NewsAPI headlines...")
+        articles = []
+        try:
+            # Default params if not in config
+            category = self.config.get('category', 'technology')
+            country = self.config.get('country', 'us')
+            language = self.config.get('language', 'en')
+            
+            # Fetch
+            response = self.client.get_top_headlines(
+                category=category,
+                country=country,
+                language=language,
+                page_size=20
+            )
+
+            if response.get('status') != 'ok':
+                print(f"NewsAPI Error: {response.get('message')}")
+                return []
+
+            for item in response.get('articles', []):
+                # Publish content to Telegraph if full content missing? 
+                # NewsAPI only gives description/content snippet.
+                # Ideally we scrape the 'url' with newspaper3k too?
+                # For hybrid speed, let's just use what we get or do a light wrap.
+                
+                # To keep it consistent, let's just point 'telegraph_url' to the real global URL 
+                # OR actually fetch & publish like valid scraper if we want Reader Mode.
+                # Let's do a lightweight publish of Title + Description + Link to original.
+                
+                html_body = f"<p>{item.get('description', '')}</p><br><a href='{item['url']}'>Read Original Source</a>"
+                if item.get('urlToImage'):
+                     html_body = f"<img src='{item['urlToImage']}'><br>" + html_body
+
+                telegraph_url = self.publisher.publish(
+                    title=item['title'],
+                    html_content=html_body,
+                    author=item.get('source', {}).get('name', 'NewsAPI')
+                )
+
+                articles.append({
+                    "id": abs(hash(item['url'])),
+                    "source": item.get('source', {}).get('name', 'NewsAPI'),
+                    "title": item['title'],
+                    "url": item['url'],
+                    "telegraph_url": telegraph_url,
+                    "image": item.get('urlToImage'),
+                    "summary": item.get('description'),
+                    "scraped_at": datetime.now().isoformat(),
+                    "user_score": None
+                })
+                
+        except Exception as e:
+            print(f"NewsAPI Fetch failed: {e}")
+
+        return articles
 
 class TelegraphPublisher:
     def __init__(self):
-        self.telegraph = Telegraph()
-        self.token = self._load_or_create_account()
-        
-    def _load_or_create_account(self):
+        self.tokens = self._load_or_create_accounts()
+        self.current_token_index = 0
+        self.telegraph = None
+        self._update_client()
+
+    def _update_client(self):
+        if self.tokens:
+            token = self.tokens[self.current_token_index]
+            self.telegraph = Telegraph(access_token=token)
+
+    def _load_or_create_accounts(self):
+        tokens = []
         if os.path.exists(TELEGRAPH_TOKEN_FILE):
             try:
                 with open(TELEGRAPH_TOKEN_FILE, 'r') as f:
                     data = json.load(f)
-                    token = data.get('access_token')
-                    print(f"Loaded Telegraph token.")
-                    self.telegraph = Telegraph(access_token=token)
-                    return token
+                    if isinstance(data, list):
+                        tokens = data
+                    elif isinstance(data, dict) and 'access_token' in data:
+                        # Legacy single token support
+                        tokens = [data['access_token']]
             except Exception as e:
-                print(f"Error loading Telegraph token: {e}")
+                print(f"Error loading Telegraph tokens: {e}")
         
-        # Create new
-        try:
-            print("Creating new Telegraph account...")
-            account = self.telegraph.create_account(short_name='NewsBot', author_name='AI News Aggregator')
+        # Ensure we have at least 5 tokens
+        if len(tokens) < 5:
+            print(f"Generating Telegraph tokens (Current: {len(tokens)}, Target: 5)...")
+            temp_client = Telegraph()
+            while len(tokens) < 5:
+                try:
+                    account = temp_client.create_account(short_name=f'NewsBot_{len(tokens)+1}', author_name='AI News Aggregator')
+                    tokens.append(account['access_token'])
+                    print(f"  -> Created token {len(tokens)}")
+                except Exception as e:
+                    print(f"  -> Failed to create token: {e}")
+                    break
+            
+            # Save updated list
             with open(TELEGRAPH_TOKEN_FILE, 'w') as f:
-                json.dump(account, f)
-            return account['access_token']
-        except Exception as e:
-            print(f"Failed to create Telegraph account: {e}")
-            return None
+                json.dump(tokens, f)
+                
+        print(f"Loaded {len(tokens)} Telegraph tokens.")
+        return tokens
+
+    def _rotate_token(self):
+        if not self.tokens: return
+        self.current_token_index = (self.current_token_index + 1) % len(self.tokens)
+        self._update_client()
+        print(f"  -> Rotated to Telegraph Token #{self.current_token_index + 1}")
 
     def publish(self, title, html_content, author="AI Bot"):
-        if not self.token: return None
-        try:
-            response = self.telegraph.create_page(
-                title=title[:256], # Limit title length
-                html_content=html_content,
-                author_name=author
-            )
-            return response['url']
-        except Exception as e:
-            print(f"Telegraph publish failed: {e}")
-            return None
+        if not self.telegraph: return None
+        
+        max_retries = len(self.tokens)
+        attempts = 0
+        
+        while attempts < max_retries:
+            try:
+                response = self.telegraph.create_page(
+                    title=title[:256],
+                    html_content=html_content,
+                    author_name=author
+                )
+                return response['url']
+            except Exception as e:
+                err_str = str(e).lower()
+                if "flood" in err_str:
+                    print(f"  -> Telegraph Flood Control hit. Rotating token...")
+                    self._rotate_token()
+                    attempts += 1
+                else:
+                    print(f"  -> Telegraph publish failed: {e}")
+                    return None
+        
+        print("  -> All Telegraph tokens hit rate limits.")
+        return None
 
 class NewsML:
     def __init__(self):
@@ -144,8 +263,9 @@ class PortalManager:
     def _scrape_portal(self, portal):
         # 1. Get Links first using basic requests/bs4 to find article URLs
         # (Newspaper can do this too, but we want to stick to the 'portal' definition logic loosely)
+        ua = UserAgent()
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            "User-Agent": ua.random
         }
         
         items = []
@@ -182,7 +302,13 @@ class PortalManager:
                 # Processing with Newspaper3k
                 try:
                     print(f"  -> Processing {href}...")
-                    article = Article(href)
+                    
+                    # Create Config with Random UA
+                    config = Config()
+                    config.browser_user_agent = ua.random
+                    config.request_timeout = 10
+
+                    article = Article(href, config=config)
                     article.download()
                     article.parse()
                     
@@ -256,3 +382,25 @@ def merge_news(old_news, new_news):
             count_new += 1
             
     return merged, count_new
+
+def cleanup_and_sort_news(news_items, hours=72):
+    """
+    1. Removes items older than 'hours'
+    2. Sorts by scraped_at descending (newest first)
+    """
+    cutoff = datetime.now() - timedelta(hours=hours)
+    
+    valid_items = []
+    for item in news_items:
+        try:
+            item_date = datetime.fromisoformat(item['scraped_at'])
+            if item_date > cutoff:
+                valid_items.append(item)
+        except ValueError:
+            valid_items.append(item)
+            
+    # Sort
+    valid_items.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
+    
+    print(f"Cleanup: Removed {len(news_items) - len(valid_items)} old articles. Remaining: {len(valid_items)}")
+    return valid_items

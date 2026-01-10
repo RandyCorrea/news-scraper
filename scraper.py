@@ -1,6 +1,6 @@
 import json
 import os
-from bot_core import NewsML, PortalManager, merge_news, NEWS_FILE
+from bot_core import NewsML, PortalManager, NewsAPIFetcher, merge_news, cleanup_and_sort_news, NEWS_FILE
 
 def main():
     # 1. Load Data
@@ -14,9 +14,14 @@ def main():
     ml = NewsML()
     ml.train(old_news)
 
-    # 3. Scrape
+    # 3. Scrape & Fetch
     manager = PortalManager()
-    new_articles = manager.scrape_all()
+    custom_articles = manager.scrape_all()
+
+    api_fetcher = NewsAPIFetcher()
+    api_articles = api_fetcher.fetch_headlines()
+
+    new_articles = custom_articles + api_articles
 
     # 4. Predict Scores for new articles
     for article in new_articles:
@@ -25,13 +30,18 @@ def main():
         # Just store the prediction for sorting/badging.
 
     # 5. Merge
-    final_list, added_count = merge_news(old_news, new_articles)
+    final_news, added_count = merge_news(old_news, new_articles)
     
-    # 6. Save
-    with open(NEWS_FILE, 'w') as f:
-        json.dump(final_list, f, indent=2)
+    # 6. Cleanup & Sort (72h limit, newest first)
+    final_news = cleanup_and_sort_news(final_news, hours=72)
 
-    print(f"Process Complete. Model trained: {ml.is_trained}. New Articles: {added_count}. Total: {len(final_list)}")
+    print(f"Added {added_count} new articles.")
+    
+    # 7. Save
+    with open(NEWS_FILE, 'w') as f:
+        json.dump(final_news, f, indent=2)
+
+    print(f"Process Complete. Model trained: {ml.is_trained}. New Articles: {added_count}. Total: {len(final_news)}")
 
 if __name__ == "__main__":
     main()

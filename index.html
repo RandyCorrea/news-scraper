@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Aggregator</title>
+    <title>GlobalNewsHub | AI Integrated</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
@@ -44,11 +44,13 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="news-tab">News Feed</button>
             <button class="tab-btn" data-tab="portals-tab">Portals</button>
+            <button class="tab-btn" data-tab="settings-tab">Settings</button>
         </div>
 
         <!-- News Tab -->
         <div id="news-tab" class="tab-content active">
             <section id="news-grid" class="news-grid">
+                <!-- Data injected via JS -->
                 <div class="loader-container">
                     <div class="loader"></div>
                 </div>
@@ -80,6 +82,40 @@
                 </div>
             </div>
         </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <div class="portal-management">
+                <h3>NewsAPI Configuration</h3>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">Integrate NewsAPI.org to fetch top headlines
+                    automatically.</p>
+
+                <div class="add-portal-form">
+                    <div class="input-group" style="flex-direction: column; gap: 15px;">
+                        <input type="password" id="news-api-key" placeholder="NewsAPI Key (e.g. abc12345...)"
+                            class="full-width">
+
+                        <div style="display: flex; gap: 10px;">
+                            <select id="news-country">
+                                <option value="us">United States (us)</option>
+                                <option value="gb">United Kingdom (gb)</option>
+                                <option value="in">India (in)</option>
+                                <option value="au">Australia (au)</option>
+                            </select>
+                            <select id="news-category">
+                                <option value="technology">Technology</option>
+                                <option value="business">Business</option>
+                                <option value="science">Science</option>
+                                <option value="health">Health</option>
+                                <option value="entertainment">Entertainment</option>
+                            </select>
+                        </div>
+
+                        <button id="save-settings-btn" class="btn primary">Save Configuration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div id="toast" class="toast hidden">
@@ -87,7 +123,7 @@
         <span id="toast-message">Notification</span>
     </div>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
     <script>
         lucide.createIcons();
     </script>

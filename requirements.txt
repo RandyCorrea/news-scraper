@@ -3,8 +3,9 @@ beautifulsoup4
 lxml
 lxml_html_clean
 scikit-learn
-numpy
-joblib
-newspaper3k
 telegraph
+newspaper3k
+lxml[html_clean]
+fake-useragent
 nltk
+newsapi-python
