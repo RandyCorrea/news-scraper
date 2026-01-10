@@ -1545,7 +1545,8 @@
     "summary": "Hombre muere tras pelea en San Cristóbal con arma cortopunzante. Policía investiga las circunstancias del hecho y busca testigos en el barrio La Loma.",
     "scraped_at": "2026-01-04T18:23:41.692127",
     "user_score": null,
-    "predicted_score": 3.4802784532668785
+    "predicted_score": 3.4802784532668785,
+    "status": "discarded"
   },
   {
     "id": 1062805150774774400,
@@ -1557,7 +1558,8 @@
     "summary": "Murió María Victoria Calle Correa, ex presidenta de la Corte Constitucional. Gobierno y altas cortes reaccionaron tras conocerse la noticia.",
     "scraped_at": "2025-12-22T06:29:13.399914",
     "user_score": null,
-    "predicted_score": 3.4739414563150532
+    "predicted_score": 3.4739414563150532,
+    "status": "discarded"
   },
   {
     "id": 3509028417850490000,
@@ -1569,7 +1571,8 @@
     "summary": "Las obras para atender los daños causados por la primera temporada de lluvias de 2025 en Medellín avanzan en un 65 %, según informó la Administración",
     "scraped_at": "2026-01-06T01:16:21.652798",
     "user_score": null,
-    "predicted_score": 3.467527866988733
+    "predicted_score": 3.467527866988733,
+    "status": "discarded"
   },
   {
     "id": 5544186282369361000,
