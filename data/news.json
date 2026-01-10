@@ -1025,7 +1025,8 @@
     "summary": "Autoridades entregaron balance de casos de orden público durante la celebración de Nochebuena.",
     "scraped_at": "2025-12-26T06:26:21.643897",
     "user_score": null,
-    "predicted_score": 3.6966804246153826
+    "predicted_score": 3.6966804246153826,
+    "status": "discarded"
   },
   {
     "id": 5739822424257422000,
