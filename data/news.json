@@ -1038,7 +1038,8 @@
     "summary": "Autoridades advierten que el consumo de alcohol sigue siendo un detonante de hechos violentos en Medellín.",
     "scraped_at": "2025-12-29T01:20:18.881929",
     "user_score": null,
-    "predicted_score": 3.6652255518873664
+    "predicted_score": 3.6652255518873664,
+    "status": "discarded"
   },
   {
     "id": 6913685821541333000,
@@ -1050,7 +1051,8 @@
     "summary": "Un hombre murió tras ser atacado con arma blanca en medio de una riña en el Centro de Medellín. El cuerpo sigue en Medicina Legal.",
     "scraped_at": "2025-12-27T01:13:13.933297",
     "user_score": null,
-    "predicted_score": 3.6650010964490582
+    "predicted_score": 3.6650010964490582,
+    "status": "discarded"
   },
   {
     "id": 392918192563140200,
@@ -1062,7 +1064,8 @@
     "summary": "Terminales Medellín ejecutó más de 200 operativos en cuidado de menores de edad y fauna silvestre.",
     "scraped_at": "2026-01-06T01:16:18.026626",
     "user_score": null,
-    "predicted_score": 3.633812460474993
+    "predicted_score": 3.633812460474993,
+    "status": "discarded"
   },
   {
     "id": 5692748726430271000,
