@@ -1012,7 +1012,8 @@
     "summary": "En Medellín, una ciudad que recibe miles de visitantes cada año, las autoridades lograron un importante golpe contra el delito. La Policía Nacional capturó a",
     "scraped_at": "2026-01-07T12:35:25.667260",
     "user_score": null,
-    "predicted_score": 3.7008218643443493
+    "predicted_score": 3.7008218643443493,
+    "status": "discarded"
   },
   {
     "id": 7983308120170079000,
