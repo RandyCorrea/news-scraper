@@ -13657,7 +13657,8 @@
     "summary": "Comerciante expone en redes el impacto del nuevo salario mínimo en su nómina y reabre la discusión sobre empleo y empresas pequeñas.",
     "scraped_at": "2025-12-31T06:27:18.803546",
     "user_score": null,
-    "predicted_score": 1.8989329616827857
+    "predicted_score": 1.8989329616827857,
+    "status": "discarded"
   },
   {
     "id": 2947465200078981000,
@@ -13669,7 +13670,8 @@
     "summary": "La Alcaldía de Bogotá entrega el Ingreso Mínimo Garantizado a más de 360.000 beneficiarios. Consulta montos, fechas y cómo cobrar",
     "scraped_at": "2025-12-19T01:14:02.199946",
     "user_score": null,
-    "predicted_score": 1.892677902396675
+    "predicted_score": 1.892677902396675,
+    "status": "discarded"
   },
   {
     "id": 8525829287632675000,
