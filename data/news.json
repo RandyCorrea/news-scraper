@@ -1662,7 +1662,8 @@
     "summary": "Incendio en la zona industrial de La Estrella dejó cinco animales muertos, cuatro casas incineradas, seis viviendas afectadas y un bombero lesionado.",
     "scraped_at": "2025-12-20T01:09:56.593325",
     "user_score": null,
-    "predicted_score": 3.4498193707829294
+    "predicted_score": 3.4498193707829294,
+    "status": "discarded"
   },
   {
     "id": 7682164089652697000,
@@ -1674,7 +1675,8 @@
     "summary": "Junior de Barranquilla salió afectado en sus aspiraciones para la Copa Libertadores 2026 por culpa del título que Corinthians consiguió en Brasil",
     "scraped_at": "2025-12-22T06:27:52.965243",
     "user_score": null,
-    "predicted_score": 3.4479658403121323
+    "predicted_score": 3.4479658403121323,
+    "status": "discarded"
   },
   {
     "id": 9065209703340683000,
@@ -1686,7 +1688,8 @@
     "summary": "Isvimed cerró 2025 con 588 viviendas entregadas y dejó listos proyectos para construir 1.383 más en Medellín en los próximos años.",
     "scraped_at": "2025-12-22T06:29:14.680834",
     "user_score": null,
-    "predicted_score": 3.4406718951580237
+    "predicted_score": 3.4406718951580237,
+    "status": "discarded"
   },
   {
     "id": 7451749656031877000,
