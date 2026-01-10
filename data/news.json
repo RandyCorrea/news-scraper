@@ -1584,7 +1584,8 @@
     "summary": "En esta cifra, se incluye un menor de 14 años.",
     "scraped_at": "2026-01-02T12:32:23.174271",
     "user_score": null,
-    "predicted_score": 3.462980702925763
+    "predicted_score": 3.462980702925763,
+    "status": "discarded"
   },
   {
     "id": 4138083511109107000,
@@ -1596,7 +1597,8 @@
     "summary": "Los heridos fueron trasladados a diversos hospitales y los más graves al Hospital de Sion, capital del cantón de Valais.",
     "scraped_at": "2026-01-02T01:14:42.048439",
     "user_score": null,
-    "predicted_score": 3.4622679529114766
+    "predicted_score": 3.4622679529114766,
+    "status": "discarded"
   },
   {
     "id": 7341370228612796000,
@@ -1608,7 +1610,8 @@
     "summary": "Fiscalía judicializó a dos hombres por presunto ataque con aceite caliente a mujeres trans dentro de una estación de Policía en Medellín.",
     "scraped_at": "2026-01-07T01:16:25.529171",
     "user_score": null,
-    "predicted_score": 3.455694327365799
+    "predicted_score": 3.455694327365799,
+    "status": "discarded"
   },
   {
     "id": 7391795353082363000,
