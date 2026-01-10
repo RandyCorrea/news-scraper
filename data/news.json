@@ -1623,7 +1623,8 @@
     "summary": "Petro designó a quien fuera secretario de Hacienda de Daniel Quintero como contralor de la Cooperativa de Andes.",
     "scraped_at": "2025-12-19T06:26:08.415538",
     "user_score": null,
-    "predicted_score": 3.4554379956932593
+    "predicted_score": 3.4554379956932593,
+    "status": "discarded"
   },
   {
     "id": 3465331847747019300,
@@ -1635,7 +1636,8 @@
     "summary": "Bomberos de Medellín ingresaron por las ventanas del Hospital Infantil San Vicente para sorprender a niños hospitalizados con una visita navideña.",
     "scraped_at": "2025-12-24T01:13:56.179429",
     "user_score": null,
-    "predicted_score": 3.4551392475008167
+    "predicted_score": 3.4551392475008167,
+    "status": "discarded"
   },
   {
     "id": 3718830941413696000,
@@ -1647,7 +1649,8 @@
     "summary": "El fuego se originó cuando el elemento impactó la cubierta plástica, la cual se encendió en segundos debido a su material inflamable.",
     "scraped_at": "2026-01-05T06:32:50.112619",
     "user_score": null,
-    "predicted_score": 3.450518752002081
+    "predicted_score": 3.450518752002081,
+    "status": "discarded"
   },
   {
     "id": 4132800494820552000,
