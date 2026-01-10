@@ -13969,7 +13969,8 @@
     "summary": "El Servicio Geológico Colombiano entregó detalles sobre el movimiento telúrico.",
     "scraped_at": "2026-01-01T01:20:58.583934",
     "user_score": null,
-    "predicted_score": 1.6636345468750178
+    "predicted_score": 1.6636345468750178,
+    "status": "discarded"
   },
   {
     "id": 5238053313421826000,
