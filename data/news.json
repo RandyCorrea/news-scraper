@@ -13884,7 +13884,8 @@
     "summary": "El nuevo asistente robótico de la marca coreana se toma el CES 2026 con demostraciones que parecen de ciencia ficción.",
     "scraped_at": "2026-01-06T06:28:21.196053",
     "user_score": null,
-    "predicted_score": 1.8310190851943062
+    "predicted_score": 1.8310190851943062,
+    "status": "discarded"
   },
   {
     "id": 8573934453054782000,
@@ -13896,7 +13897,8 @@
     "summary": "Participarán más de 60 talleres artesanales provenientes de diferentes lugares del departamento.",
     "scraped_at": "2025-12-27T01:12:59.365343",
     "user_score": null,
-    "predicted_score": 1.8114279896587802
+    "predicted_score": 1.8114279896587802,
+    "status": "discarded"
   },
   {
     "id": 4339183160452319700,
@@ -13908,7 +13910,8 @@
     "summary": "Con un avance del 70 por ciento en la primera línea, se inició ensayos de frenado, aceleración y seguridad en el Patio Taller de Bosa.",
     "scraped_at": "2025-12-27T01:11:00.609353",
     "user_score": null,
-    "predicted_score": 1.7919029434201665
+    "predicted_score": 1.7919029434201665,
+    "status": "discarded"
   },
   {
     "id": 8592343931809468000,
