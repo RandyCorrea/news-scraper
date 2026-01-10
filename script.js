@@ -92,6 +92,20 @@ async function loadPortals() {
 }
 
 async function loadSettings() {
+    // 1. Try Local Storage Article (Instant)
+    const localConfig = localStorage.getItem('news_config');
+    if (localConfig) {
+        try {
+            const config = JSON.parse(localConfig);
+            document.getElementById('news-api-key').value = config.api_key || '';
+            document.getElementById('news-country').value = config.country || 'us';
+            document.getElementById('news-category').value = config.category || 'technology';
+            console.log("Loaded settings from localStorage");
+            return; // Skip fetch if we have local
+        } catch (e) { console.error("Local config parse error", e); }
+    }
+
+    // 2. Try Fetch (Fallback)
     try {
         const response = await fetch('data/newsapi_config.json' + '?t=' + Date.now());
         if (response.ok) {
@@ -99,6 +113,8 @@ async function loadSettings() {
             document.getElementById('news-api-key').value = config.api_key || '';
             document.getElementById('news-country').value = config.country || 'us';
             document.getElementById('news-category').value = config.category || 'technology';
+            // Sync up local storage if found
+            localStorage.setItem('news_config', JSON.stringify(config));
         }
     } catch (e) {
         console.log("No config found or load error", e);
@@ -488,8 +504,12 @@ async function saveSettings() {
         const token = document.getElementById('gh-token').value.trim();
         if (!token) throw new Error("GitHub Token required to save settings.");
 
+        // 1. Save to Local Storage (Instant Persist)
+        localStorage.setItem('news_config', JSON.stringify(config));
+
+        // 2. Save to GitHub (Cloud Sync)
         await updateGitHubFile(SETTINGS_SOURCE, JSON.stringify(config, null, 4), "Update NewsAPI Config");
-        showToast("Settings Saved Successfully!", "success");
+        showToast("Settings Saved & Cached Locally!", "success");
 
     } catch (e) {
         showToast(e.message, 'error');
