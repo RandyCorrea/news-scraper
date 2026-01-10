@@ -1467,7 +1467,8 @@
     "summary": "Un felino silvestre de la especie margay (Leopardus wiedii), que permanecía en cautiverio dentro de una vivienda en el municipio de Bello, logró regresar a su",
     "scraped_at": "2025-12-29T18:25:30.036565",
     "user_score": null,
-    "predicted_score": 3.527375492289898
+    "predicted_score": 3.527375492289898,
+    "status": "discarded"
   },
   {
     "id": 6023063712161574000,
@@ -1479,7 +1480,8 @@
     "summary": "El caso del menor se presentó según el reporte, en el municipio de Bello. El Bebé presenta quemadura de primer grado en la cara.",
     "scraped_at": "2026-01-02T06:26:56.547382",
     "user_score": null,
-    "predicted_score": 3.5178340681505684
+    "predicted_score": 3.5178340681505684,
+    "status": "discarded"
   },
   {
     "id": 1944592481439554600,
@@ -1491,7 +1493,8 @@
     "summary": "Ejército confirmó que la Troncal de Occidente está despejada tras la quema de un vehículo en Valdivia y mantiene presencia en la vía.",
     "scraped_at": "2025-12-15T06:28:41.340427",
     "user_score": null,
-    "predicted_score": 3.5171498351923915
+    "predicted_score": 3.5171498351923915,
+    "status": "discarded"
   },
   {
     "id": 733413644520442200,
