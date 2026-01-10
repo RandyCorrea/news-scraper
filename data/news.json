@@ -1727,7 +1727,8 @@
     "summary": "Las personas se movilizaron por las principales calles céntricas de Medellín hasta llegar al Centro Administrativo la Alpujarra.",
     "scraped_at": "2026-01-08T06:27:55.258444",
     "user_score": null,
-    "predicted_score": 3.4293626409642295
+    "predicted_score": 3.4293626409642295,
+    "status": "discarded"
   },
   {
     "id": 2036743133331074600,
@@ -1739,7 +1740,8 @@
     "summary": "Seis personas resultaron heridas tras un ataque con arma blanca durante una reunión familiar en Robledo, Medellín. El agresor fue capturado.",
     "scraped_at": "2025-12-28T18:23:42.656771",
     "user_score": null,
-    "predicted_score": 3.407762635405528
+    "predicted_score": 3.407762635405528,
+    "status": "discarded"
   },
   {
     "id": 4575006655257669000,
