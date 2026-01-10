@@ -1116,7 +1116,8 @@
     "summary": "Un volador cayó en un pino en Manrique Oriental y generó alerta. Autoridades atendieron el caso en plena temporada decembrina.",
     "scraped_at": "2025-12-21T06:24:38.785088",
     "user_score": null,
-    "predicted_score": 3.6150974328759773
+    "predicted_score": 3.6150974328759773,
+    "status": "discarded"
   },
   {
     "id": 752527014672418200,
@@ -1128,7 +1129,8 @@
     "summary": "En medio del incendio, la comunidad reportó varias explosiones.",
     "scraped_at": "2025-12-20T06:24:52.318821",
     "user_score": null,
-    "predicted_score": 3.611407906316769
+    "predicted_score": 3.611407906316769,
+    "status": "discarded"
   },
   {
     "id": 2090882462794567400,
@@ -1140,7 +1142,8 @@
     "summary": "En el mes de noviembre, Sebastián López denunció en el mes de noviembre a Quintero por calumnia.",
     "scraped_at": "2025-12-21T18:22:49.930447",
     "user_score": null,
-    "predicted_score": 3.6062233212509334
+    "predicted_score": 3.6062233212509334,
+    "status": "discarded"
   },
   {
     "id": 7716354505584217000,
