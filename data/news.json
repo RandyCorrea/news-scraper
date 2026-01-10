@@ -13848,7 +13848,8 @@
     "summary": "Inversionistas chilenos, israelíes y mexicanos han comprado tierras y se han sumado a los colombianos que tienen disparada la producción de Hass",
     "scraped_at": "2026-01-07T18:25:18.525226",
     "user_score": null,
-    "predicted_score": 1.880406853601247
+    "predicted_score": 1.880406853601247,
+    "status": "discarded"
   },
   {
     "id": 468494439403082000,
@@ -13860,7 +13861,8 @@
     "summary": "De acuerdo con el Departamento Administrativo Nacional de Estadística (Dane), durante el trimestre móvil septiembre–noviembre la tasa de desocupación ...",
     "scraped_at": "2026-01-03T01:11:45.730476",
     "user_score": null,
-    "predicted_score": 1.8743832012527415
+    "predicted_score": 1.8743832012527415,
+    "status": "discarded"
   },
   {
     "id": 8136866163987620000,
