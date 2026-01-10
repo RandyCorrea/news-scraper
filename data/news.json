@@ -13584,7 +13584,8 @@
     "summary": "¿Retrasos en su salario? Conozca los pasos legales, multas para el empleador y cómo radicar una queja ante el Ministerio de Trabajo si no recibe su pago.",
     "scraped_at": "2026-01-01T18:23:19.729782",
     "user_score": null,
-    "predicted_score": 1.9282368179531115
+    "predicted_score": 1.9282368179531115,
+    "status": "discarded"
   },
   {
     "id": 7949442343935493000,
@@ -13596,7 +13597,8 @@
     "summary": "Giovanny Ayala se reunió con el Gaula tras el rescate de su hijo Miguel, secuestrado durante varias semanas en el departamento del Cauca.",
     "scraped_at": "2025-12-25T06:26:31.561897",
     "user_score": null,
-    "predicted_score": 1.9259799695248336
+    "predicted_score": 1.9259799695248336,
+    "status": "discarded"
   },
   {
     "id": 2658688399689506300,
