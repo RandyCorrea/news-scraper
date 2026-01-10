@@ -1818,7 +1818,8 @@
     "summary": "Los seis casos nuevos se registraron este jueves 18 de diciembre.",
     "scraped_at": "2025-12-19T06:26:08.156339",
     "user_score": null,
-    "predicted_score": 3.372221826916476
+    "predicted_score": 3.372221826916476,
+    "status": "discarded"
   },
   {
     "id": 7114959163150698000,
@@ -1830,7 +1831,8 @@
     "summary": "Los mandatarios de Argentina, Paraguay, Panamá, Bolivia, Ecuador y Perú suscribieron el comunicado durante la cumbre del Mercosur.",
     "scraped_at": "2025-12-22T01:15:48.832243",
     "user_score": null,
-    "predicted_score": 3.371742917203013
+    "predicted_score": 3.371742917203013,
+    "status": "discarded"
   },
   {
     "id": 6891045472005573000,
