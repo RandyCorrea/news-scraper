@@ -13681,7 +13681,8 @@
     "summary": "Tras conocerse el fallecimiento del reconocido director húngaro, hacemos un repaso por la mirada de quien fue estandarte de un modo único de hacer cine.",
     "scraped_at": "2026-01-07T06:27:38.368765",
     "user_score": null,
-    "predicted_score": 1.8884281918189265
+    "predicted_score": 1.8884281918189265,
+    "status": "discarded"
   },
   {
     "id": 5267262521629418000,
@@ -13693,7 +13694,8 @@
     "summary": "Desde algunos sectores se sostiene que la decisión adoptada por el presidente Gustavo Petro es contraria a la ley.",
     "scraped_at": "2026-01-02T12:31:18.220228",
     "user_score": null,
-    "predicted_score": 1.8884281918189265
+    "predicted_score": 1.8884281918189265,
+    "status": "discarded"
   },
   {
     "id": 9014334843648806000,
