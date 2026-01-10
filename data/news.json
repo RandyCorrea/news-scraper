@@ -1883,7 +1883,8 @@
     "summary": "La temporada de fin de año en Antioquia suma una nueva tragedia que evidencia el peligro de movilizar explosivos sin precaución. En el municipio de Granada,",
     "scraped_at": "2025-12-30T18:28:07.182715",
     "user_score": null,
-    "predicted_score": 3.362292815603551
+    "predicted_score": 3.362292815603551,
+    "status": "discarded"
   },
   {
     "id": 413255880038837500,
@@ -1908,7 +1909,8 @@
     "summary": "Tres personas fueron capturadas tras, presuntamente, agredir a uniformados, incluido el comandante de la estación",
     "scraped_at": "2025-12-28T01:23:38.143532",
     "user_score": null,
-    "predicted_score": 3.361583469926053
+    "predicted_score": 3.361583469926053,
+    "status": "discarded"
   },
   {
     "id": 8444558457089821000,
@@ -1920,7 +1922,8 @@
     "summary": "González López, quien también asumió el mando de la contrainteligencia militar, es el primer nombramiento de Delcy Rodríguez. Se esperan más purgas.",
     "scraped_at": "2026-01-08T12:34:06.849473",
     "user_score": null,
-    "predicted_score": 3.360603158866685
+    "predicted_score": 3.360603158866685,
+    "status": "discarded"
   },
   {
     "id": 3561568462585160000,
