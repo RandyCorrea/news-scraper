@@ -1155,7 +1155,8 @@
     "summary": "Bomberos confirman incendios en residencias del Valle de Aburrá de Medellín y mantienen investigaciones por esta prohibida práctica",
     "scraped_at": "2025-12-27T06:24:45.543468",
     "user_score": null,
-    "predicted_score": 3.595335498614814
+    "predicted_score": 3.595335498614814,
+    "status": "discarded"
   },
   {
     "id": 7064536281534840000,
@@ -1167,7 +1168,8 @@
     "summary": "Ever Antonio Sánchez es comerciante de hace varios años en la tribuna norte del Atanasio Girardot",
     "scraped_at": "2025-12-20T01:09:54.447171",
     "user_score": null,
-    "predicted_score": 3.595335498614814
+    "predicted_score": 3.595335498614814,
+    "status": "discarded"
   },
   {
     "id": 2190978744414890500,
@@ -1179,7 +1181,8 @@
     "summary": "El objetivo en la ciudad es cerrar el 2025 sin nuevos reportes de quemados ni intoxicaciones por licor adulterado.",
     "scraped_at": "2026-01-01T01:22:38.372742",
     "user_score": null,
-    "predicted_score": 3.5917890389661045
+    "predicted_score": 3.5917890389661045,
+    "status": "discarded"
   },
   {
     "id": 1476428476892388400,
