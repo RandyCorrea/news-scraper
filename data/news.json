@@ -1324,7 +1324,8 @@
     "summary": "Medellín consolida su apuesta por el talento y la educación. En su informe de gestión 2025, Sapiencia reveló cifras históricas que confirman que la educación",
     "scraped_at": "2025-12-16T18:25:48.409943",
     "user_score": null,
-    "predicted_score": 3.5524361397260398
+    "predicted_score": 3.5524361397260398,
+    "status": "discarded"
   },
   {
     "id": 4570662678673058000,
@@ -1336,7 +1337,8 @@
     "summary": "El hallazgo del cuerpo se registró aproximadamente a las 8 de la noche de este jueves primero de enero.",
     "scraped_at": "2026-01-02T18:24:27.067599",
     "user_score": null,
-    "predicted_score": 3.551743626246503
+    "predicted_score": 3.551743626246503,
+    "status": "discarded"
   },
   {
     "id": 6286212608935421000,
@@ -1348,7 +1350,8 @@
     "summary": "El alcalde de Medellín confirmó un incendio en Granizal que dejó cinco personas lesionadas y tres menores en UCI durante Navidad.",
     "scraped_at": "2025-12-25T18:23:53.145958",
     "user_score": null,
-    "predicted_score": 3.5491093783651775
+    "predicted_score": 3.5491093783651775,
+    "status": "discarded"
   },
   {
     "id": 299045484041069440,
