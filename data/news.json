@@ -1844,7 +1844,8 @@
     "summary": "La sentencia de 19 años de prisión se dio luego de que el procesado aceptara un preacuerdo con la Fiscalía.",
     "scraped_at": "2025-12-30T01:15:02.561496",
     "user_score": null,
-    "predicted_score": 3.3701250969861967
+    "predicted_score": 3.3701250969861967,
+    "status": "discarded"
   },
   {
     "id": 8231613124725404000,
@@ -1856,7 +1857,8 @@
     "summary": "Desde el año 2024, se han registrado aproximadamente 46 hallazgos de cuerpos abandonados —ya sea en contenedores, bajo lonas o en costales.",
     "scraped_at": "2026-01-09T06:27:53.834637",
     "user_score": null,
-    "predicted_score": 3.366853468531934
+    "predicted_score": 3.366853468531934,
+    "status": "discarded"
   },
   {
     "id": 2996093422472817700,
@@ -1868,7 +1870,8 @@
     "summary": "Los dos hurtos se registraron en comunas de Guayabal y La América",
     "scraped_at": "2025-12-26T18:23:58.301887",
     "user_score": null,
-    "predicted_score": 3.3660720131017894
+    "predicted_score": 3.3660720131017894,
+    "status": "discarded"
   },
   {
     "id": 6602983731803419000,
