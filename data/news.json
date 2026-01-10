@@ -13981,7 +13981,8 @@
     "summary": "Esta será la tercera etapa del futbolista con el club bogotano.",
     "scraped_at": "2026-01-08T12:35:44.217414",
     "user_score": null,
-    "predicted_score": 1.6353214553593645
+    "predicted_score": 1.6353214553593645,
+    "status": "discarded"
   },
   {
     "id": 7028627958290180000,
@@ -14006,7 +14007,8 @@
     "summary": "Este paciente está vinculado con un viaje internacional, según reveló el Ministerio de Salud.",
     "scraped_at": "2025-12-24T12:33:01.312201",
     "user_score": null,
-    "predicted_score": 1.6087255598215595
+    "predicted_score": 1.6087255598215595,
+    "status": "discarded"
   },
   {
     "id": 7746480921029216000,
