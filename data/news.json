@@ -1402,7 +1402,8 @@
     "summary": "En el Parque de las Luces, se dieron cita los venezolanos para celebrar lo que denominaron como un día histórico.",
     "scraped_at": "2026-01-04T12:30:45.293088",
     "user_score": null,
-    "predicted_score": 3.5458977533348066
+    "predicted_score": 3.5458977533348066,
+    "status": "discarded"
   },
   {
     "id": 7283715648757234000,
@@ -1414,7 +1415,8 @@
     "summary": "Medicina Legal en Medellín informó que busca familiares de Hernán de Jesús Palacio Betancur. La entidad habilitó líneas telefónicas para contacto.",
     "scraped_at": "2025-12-28T01:23:41.924473",
     "user_score": null,
-    "predicted_score": 3.5458977533348066
+    "predicted_score": 3.5458977533348066,
+    "status": "discarded"
   },
   {
     "id": 5896224138398883000,
