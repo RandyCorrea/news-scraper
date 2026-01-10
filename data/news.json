@@ -13920,7 +13920,8 @@
     "summary": "Infórmese sobre finanzas, macroeconomía, negocios y más. Análisis y noticias de economía en Colombia y el mundo en Semana.",
     "scraped_at": "2025-12-17T01:07:58.733385",
     "user_score": null,
-    "predicted_score": 1.7859074784796585
+    "predicted_score": 1.7859074784796585,
+    "status": "discarded"
   },
   {
     "id": 5242888350066518000,
@@ -13945,7 +13946,8 @@
     "summary": "Falcao no quiere retirarse todavía y dejó claro que el próximo año va a volver a las canchas, aunque hasta el momento no sabe con qué equipo lo hará",
     "scraped_at": "2025-12-22T06:27:53.430482",
     "user_score": null,
-    "predicted_score": 1.7659908394966894
+    "predicted_score": 1.7659908394966894,
+    "status": "discarded"
   },
   {
     "id": 2086504030244891000,
